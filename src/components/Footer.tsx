@@ -26,9 +26,6 @@ export function Footer() {
             <Link href="/work" className="hover:text-fg">
               Work
             </Link>
-            <Link href="/faq" className="hover:text-fg">
-              FAQ
-            </Link>
             <Link href="/contact" className="hover:text-fg">
               Contact Us
             </Link>
@@ -39,9 +36,6 @@ export function Footer() {
             Services
           </p>
           <div className="mt-3 flex flex-col gap-2 text-sm text-muted">
-            <Link href="/services" className="hover:text-fg">
-              All services
-            </Link>
             <Link href="/services/website" className="hover:text-fg">
               Website Development
             </Link>

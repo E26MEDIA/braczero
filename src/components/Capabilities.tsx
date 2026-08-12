@@ -1,9 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { AnimatedCounter } from "./AnimatedCounter";
-import { useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { AnimatedCounter } from "./AnimatedCounter";
 
 const capabilities = [
   {
@@ -83,13 +82,12 @@ export function Capabilities() {
               >
                 <h3 className="font-display text-xl font-bold">{cap.title}</h3>
                 <ul className="mt-5 space-y-3">
-                  {cap.items.map((item, j) => (
+                  {cap.items.map((item) => (
                     <motion.li
                       key={item}
                       whileHover={{ x: 6, color: "#3ecfba" }}
                       className="cursor-default border-b border-white/10 pb-3 text-sm text-muted last:border-0"
                       transition={{ type: "spring", stiffness: 300, damping: 22 }}
-                      style={{ transitionDelay: `${j * 20}ms` }}
                     >
                       {item}
                     </motion.li>

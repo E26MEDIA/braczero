@@ -2,6 +2,7 @@
 
 import { PageHero } from "@/components/PageHero";
 import { SiteShell } from "@/components/SiteShell";
+import { TechStack } from "@/components/TechStack";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -103,18 +104,9 @@ export function ServiceDetailPage({ data }: { data: ServiceDetailData }) {
       </section>
 
       <section className="px-6 pb-16">
-        <div className="mx-auto max-w-6xl rounded-[2rem] border border-white/10 bg-[#0b1018] p-8 md:p-10">
+        <div className="mx-auto max-w-6xl rounded-3xl border border-white/10 bg-[#0b1018] p-8 md:p-10">
           <h2 className="font-display text-2xl font-bold">Stack & tools</h2>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {data.tech.map((t) => (
-              <span
-                key={t}
-                className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-muted"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
+          <TechStack items={data.tech} />
         </div>
       </section>
 
@@ -126,20 +118,12 @@ export function ServiceDetailPage({ data }: { data: ServiceDetailData }) {
             </h3>
             <p className="mt-2 text-muted">We’ll map scope, timeline, and security from day one.</p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg"
-            >
-              Contact Us →
-            </Link>
-            <Link
-              href="/services"
-              className="rounded-full border border-white/15 px-6 py-3.5 text-sm text-fg"
-            >
-              All services
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg"
+          >
+            Contact Us →
+          </Link>
         </div>
       </section>
     </SiteShell>

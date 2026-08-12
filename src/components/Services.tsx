@@ -10,18 +10,21 @@ const services = [
     title: "Website Development",
     copy: "High-performance marketing sites and product platforms with cinematic motion, SEO foundations, and conversion-ready structure.",
     points: ["Next.js & modern stacks", "Design systems", "Performance & SEO"],
+    href: "/services/website",
   },
   {
     id: "02",
     title: "App Development",
-    copy: "Native-feel mobile and web apps engineered for scale—clean architecture, secure APIs, and interfaces people actually enjoy using.",
+    copy: "Native-feel mobile and web apps engineered for scale—secure APIs, clean architecture, and interfaces people actually enjoy using.",
     points: ["iOS · Android · PWA", "Product MVP to scale", "Realtime & cloud"],
+    href: "/services/app",
   },
   {
     id: "03",
     title: "Cybersecurity",
     copy: "Offense-informed defense: assessments, hardening, monitoring, and advisory so your digital surface stays ahead of threats.",
     points: ["VAPT & audits", "Secure SDLC", "Managed protection"],
+    href: "/services/cybersecurity",
   },
 ];
 
@@ -45,7 +48,7 @@ function ServiceCard({
   return (
     <motion.a
       ref={ref}
-      href="/contact"
+      href={service.href}
       onMouseMove={onMove}
       initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}

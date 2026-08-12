@@ -18,7 +18,7 @@ export function Contact({ hideIntro = false }: Props) {
   return (
     <section id="contact" className="px-6 py-16 md:py-24">
       <div
-        className={`mx-auto grid max-w-6xl gap-12 overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#0e1520] to-[#070a10] p-8 md:p-12 lg:p-14 ${
+        className={`mx-auto grid max-w-6xl gap-12 overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#0e1520] to-[#070a10] p-8 md:p-12 lg:p-14 ${
           hideIntro ? "" : "md:grid-cols-[1.1fr_0.9fr]"
         }`}
       >

@@ -59,7 +59,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1018] p-8"
+            className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b1018] p-8"
           >
             <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
             <div className="grid grid-cols-2 gap-6">
@@ -140,7 +140,7 @@ export default function AboutPage() {
       </section>
 
       <section className="px-6 pb-28">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#0e1520] to-[#070a10] p-8 md:flex-row md:items-center md:p-10">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-xl border border-white/10 bg-gradient-to-br from-[#0e1520] to-[#070a10] p-8 md:flex-row md:items-center md:p-10">
           <div>
             <h3 className="font-display text-2xl font-bold md:text-3xl">
               Want to know if we’re the right fit?

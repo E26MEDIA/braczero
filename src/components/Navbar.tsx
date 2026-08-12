@@ -10,7 +10,6 @@ const links = [
   { href: "/process", label: "Process" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About Us" },
-  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact Us" },
 ];
 
@@ -98,12 +97,6 @@ export function Navbar() {
                         {link.label}
                       </Link>
                     ))}
-                    <Link
-                      href="/services"
-                      className="mt-1 block rounded-xl border-t border-white/5 px-3 py-2 text-sm text-accent"
-                    >
-                      All services →
-                    </Link>
                   </div>
                 </motion.div>
               )}
