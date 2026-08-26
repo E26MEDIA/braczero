@@ -29,7 +29,7 @@ export function Hero() {
   }, [reduceMotion]);
 
   return (
-    <section id="top" className="relative h-[100dvh] overflow-hidden bg-[#050506] md:h-auto md:min-h-[100svh]">
+    <section id="top" className="relative min-h-[100lvh] overflow-hidden bg-[#050506]">
       <motion.div
         className="pointer-events-none absolute inset-0"
         animate={
@@ -74,9 +74,9 @@ export function Hero() {
           </motion.p>
         ))}
 
-      <div className="relative z-10 mx-auto flex h-full min-h-[100dvh] max-w-6xl flex-col justify-center px-4 pt-[calc(5.5rem+env(safe-area-inset-top))] pb-[calc(1.25rem+env(safe-area-inset-bottom))] sm:px-6 md:min-h-[100svh] md:justify-between md:pt-36 md:pb-10">
-        <div className="flex max-w-3xl flex-col justify-center pt-2 sm:pt-4 md:flex-1">
-          <h1 className="font-display text-[clamp(1.85rem,8.4vw,5.8rem)] leading-[1.08] font-extrabold tracking-tight text-white sm:leading-[0.92]">
+      <div className="relative z-10 mx-auto flex h-[100svh] max-h-[100svh] min-h-[100svh] max-w-6xl flex-col justify-between px-4 pt-[calc(4.6rem+env(safe-area-inset-top))] pb-[calc(5.25rem+env(safe-area-inset-bottom))] sm:px-6 md:h-auto md:max-h-none md:min-h-[100svh] md:pt-36 md:pb-10">
+        <div className="flex max-w-3xl shrink-0 flex-col pt-1 sm:pt-4 md:flex-1 md:justify-center">
+          <h1 className="font-display text-[clamp(1.55rem,7.2vw,5.8rem)] leading-[1.08] font-extrabold tracking-tight text-white sm:leading-[0.92]">
             <SplitText text="Being exposed" delay={0.08} />
             <span className="block">
               <SplitText text="is not your fault." delay={0.28} />
@@ -92,7 +92,7 @@ export function Hero() {
           </motion.p>
         </div>
 
-        <div className="mt-6 hidden flex-col gap-4 sm:gap-6 md:mt-0 md:flex lg:flex-row lg:items-end lg:justify-between">
+        <div className="mt-4 flex shrink-0 flex-col gap-3 sm:mt-6 sm:gap-6 md:mt-0 lg:flex-row lg:items-end lg:justify-between">
           <div className="grid min-w-0 flex-1 grid-cols-2 items-stretch gap-2 sm:gap-3 md:flex md:overflow-x-auto md:pb-1">
             <div className="hidden shrink-0 grid-cols-4 gap-1 self-center lg:grid" aria-hidden>
               {Array.from({ length: 16 }).map((_, i) => (
