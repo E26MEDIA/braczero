@@ -1,6 +1,7 @@
 "use client";
 
 import { COMPANY } from "@/lib/company";
+import { postEnquiry } from "@/lib/enquiryClient";
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -29,20 +30,15 @@ export function Contact({ hideIntro = false }: Props) {
     const form = e.currentTarget;
     const data = new FormData(form);
     try {
-      const res = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const payload = await postEnquiry({
           name: data.get("name"),
           email: data.get("email"),
           service: data.get("service"),
           other: data.get("other"),
           message: data.get("message"),
           honey: data.get("company_website"),
-        }),
-      });
-      const payload = (await res.json()) as { ok?: boolean; error?: string };
-      if (!res.ok || !payload.ok) {
+        });
+      if (!payload.ok) {
         setError(payload.error || "Could not send. Try again.");
         return;
       }

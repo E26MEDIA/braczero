@@ -1,5 +1,5 @@
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const CONTROL = /[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g;
+const CONTROL = /[\u0000-\u001F\u007F]/g;
 
 export type EnquiryInput = {
   name: string;
@@ -14,7 +14,7 @@ export type EnquiryInput = {
 
 export function cleanText(value: unknown, max: number) {
   if (typeof value !== "string") return "";
-  return value.replace(CONTROL, "").trim().slice(0, max);
+  return value.replace(CONTROL, " ").replace(/\s+/g, " ").trim().slice(0, max);
 }
 
 export function parseEnquiry(raw: unknown): { ok: true; data: EnquiryInput } | { ok: false; error: string } {

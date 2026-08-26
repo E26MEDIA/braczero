@@ -1,6 +1,7 @@
 "use client";
 
 import { chatContextForPath } from "@/lib/serviceChat";
+import { postEnquiry } from "@/lib/enquiryClient";
 import { AnimatePresence, motion } from "framer-motion";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -72,10 +73,7 @@ export function ServiceChatbot() {
     const form = e.currentTarget;
     const data = new FormData(form);
     try {
-      const res = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const payload = await postEnquiry({
           name: data.get("name"),
           email: data.get("email"),
           company: data.get("company"),
@@ -83,10 +81,8 @@ export function ServiceChatbot() {
           service: data.get("service") || ctx.title,
           message: data.get("message"),
           honey: data.get("company_website"),
-        }),
-      });
-      const payload = (await res.json()) as { ok?: boolean; error?: string };
-      if (!res.ok || !payload.ok) {
+        });
+      if (!payload.ok) {
         setMessages((m) => [...m, { role: "bot", text: payload.error || "Could not send. Try the contact form." }]);
         return;
       }
