@@ -29,7 +29,7 @@ export function Hero() {
   }, [reduceMotion]);
 
   return (
-    <section id="top" className="relative min-h-[100svh] overflow-hidden bg-[#050506]">
+    <section id="top" className="relative overflow-hidden bg-[#050506] md:min-h-[100svh]">
       <motion.div
         className="pointer-events-none absolute inset-0"
         animate={
@@ -74,9 +74,9 @@ export function Hero() {
           </motion.p>
         ))}
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-between px-6 pt-32 pb-8 md:pt-36 md:pb-10">
-        <div className="flex max-w-3xl flex-1 flex-col justify-center pt-4">
-          <h1 className="font-display text-[clamp(2.6rem,8vw,5.8rem)] leading-[0.92] font-extrabold tracking-tight text-white">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-4 pt-[calc(6.5rem+env(safe-area-inset-top))] pb-10 sm:px-6 md:min-h-[100svh] md:justify-between md:pt-36 md:pb-10">
+        <div className="flex max-w-3xl flex-col justify-center pt-2 sm:pt-4 md:flex-1">
+          <h1 className="font-display text-[clamp(1.85rem,8.2vw,5.8rem)] leading-[1.05] font-extrabold tracking-tight text-white sm:leading-[0.92]">
             <SplitText text="Being exposed" delay={0.08} />
             <span className="block">
               <SplitText text="is not your fault." delay={0.28} />
@@ -86,15 +86,15 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
-            className="mt-6 font-display text-xl tracking-tight text-accent md:text-3xl"
+            className="mt-4 font-display text-lg tracking-tight text-accent sm:mt-6 sm:text-xl md:text-3xl"
           >
             {COMPANY.tagline}
           </motion.p>
         </div>
 
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="flex min-w-0 flex-1 items-stretch gap-3 overflow-x-auto pb-1">
-            <div className="hidden shrink-0 grid-cols-4 gap-1 self-center sm:grid" aria-hidden>
+        <div className="mt-10 flex flex-col gap-4 sm:gap-6 md:mt-0 lg:flex-row lg:items-end lg:justify-between">
+          <div className="grid min-w-0 flex-1 grid-cols-2 items-stretch gap-2 sm:gap-3 md:flex md:overflow-x-auto md:pb-1">
+            <div className="hidden shrink-0 grid-cols-4 gap-1 self-center lg:grid" aria-hidden>
               {Array.from({ length: 16 }).map((_, i) => (
                 <motion.span
                   key={i}
@@ -111,19 +111,21 @@ export function Hero() {
                   key={service.href}
                   href={service.href}
                   onMouseEnter={() => setActive(i)}
-                  className={`flex min-w-[160px] flex-1 items-center justify-between gap-3 rounded-md px-4 py-4 text-sm font-medium transition md:min-w-[180px] md:px-5 md:py-5 ${
+                  className={`flex min-w-0 items-center justify-between gap-2 rounded-md px-3 py-3 text-[13px] leading-snug font-medium transition sm:px-4 sm:py-4 sm:text-sm md:min-w-[180px] md:flex-1 md:px-5 md:py-5 ${
                     on
                       ? "bg-accent text-white"
                       : "bg-white/5 text-white hover:bg-white/10"
                   }`}
                 >
-                  <span>{service.title}</span>
-                  <span aria-hidden>→</span>
+                  <span className="text-balance">{service.title}</span>
+                  <span aria-hidden className="shrink-0">
+                    →
+                  </span>
                 </Link>
               );
             })}
           </div>
-          <p className="shrink-0 text-right font-mono text-[10px] tracking-[0.22em] text-white/45 uppercase">
+          <p className="hidden shrink-0 text-right font-mono text-[10px] tracking-[0.22em] text-white/45 uppercase md:block">
             {COMPANY.tagline}
           </p>
         </div>

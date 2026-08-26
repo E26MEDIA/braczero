@@ -41,7 +41,7 @@ export default function WorkPage() {
         description="A snapshot of how BracZero ships software and hardens systems for teams that can’t afford downtime or weak releases."
       />
 
-      <section className="px-6 pb-20">
+      <section className="px-4 pb-20 sm:px-6">
         <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2">
           {cases.map((item, i) => (
             <motion.article
@@ -73,13 +73,13 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section className="px-6 pb-28">
+      <section className="px-4 pb-28 sm:px-6">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-[2rem] border border-accent/25 bg-accent/10 p-8 md:flex-row md:items-center">
           <div>
             <h3 className="font-display text-2xl font-bold">Want results like these?</h3>
             <p className="mt-2 text-muted">Tell us what you’re shipping next.</p>
           </div>
-          <Link href="/contact" className="rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg">
+          <Link href="/contact" className="w-full rounded-full bg-accent px-6 py-3.5 text-center text-sm font-semibold text-white md:w-auto">
             Start a project →
           </Link>
         </div>

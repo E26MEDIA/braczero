@@ -31,13 +31,13 @@ export function ServiceDetailPage({ data }: { data: ServiceDetailData }) {
         visual={<ServiceHeroVisual scene={data.scene} />}
       />
 
-      <section className="px-6 pb-16">
+      <section className="px-4 pb-16 sm:px-6">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.2fr_0.8fr]">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-lg leading-relaxed text-muted md:text-xl"
+            className="text-base leading-relaxed text-muted md:text-xl"
           >
             {data.intro}
           </motion.p>
@@ -58,7 +58,7 @@ export function ServiceDetailPage({ data }: { data: ServiceDetailData }) {
       </section>
 
       {data.offerings ? (
-        <section className="px-6 pb-20">
+        <section className="px-4 pb-20 sm:px-6">
           <div className="mx-auto max-w-6xl">
             <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
               What we cover
@@ -95,7 +95,7 @@ export function ServiceDetailPage({ data }: { data: ServiceDetailData }) {
         </section>
       ) : null}
 
-      <section className="px-6 pb-20">
+      <section className="px-4 pb-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
             What you get
@@ -122,7 +122,7 @@ export function ServiceDetailPage({ data }: { data: ServiceDetailData }) {
         </div>
       </section>
 
-      <section className="px-6 pb-20">
+      <section className="px-4 pb-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
             Engagement flow
@@ -146,14 +146,14 @@ export function ServiceDetailPage({ data }: { data: ServiceDetailData }) {
         </div>
       </section>
 
-      <section className="px-6 pb-16">
+      <section className="px-4 pb-16 sm:px-6">
         <div className="mx-auto max-w-6xl rounded-3xl border border-white/10 bg-[#101012] p-8 md:p-10">
           <h2 className="font-display text-2xl font-bold">Stack & tools</h2>
           <TechStack items={data.tech} />
         </div>
       </section>
 
-      <section className="px-6 pb-28">
+      <section className="px-4 pb-28 sm:px-6">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-[2rem] border border-accent/25 bg-accent/10 p-8 md:flex-row md:items-center md:p-10">
           <div>
             <h3 className="font-display text-2xl font-bold md:text-3xl">
@@ -165,7 +165,7 @@ export function ServiceDetailPage({ data }: { data: ServiceDetailData }) {
           </div>
           <Link
             href="/contact"
-            className="rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-white"
+            className="w-full rounded-full bg-accent px-6 py-3.5 text-center text-sm font-semibold text-white md:w-auto"
           >
             Contact Us →
           </Link>

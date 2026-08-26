@@ -15,7 +15,7 @@ export default function ServicesPage() {
         description="Cybersecurity, software and apps, AI automations, and data analytics—delivered as one stack so you don’t juggle five vendors."
       />
 
-      <section className="px-6 pb-16">
+      <section className="px-4 pb-16 sm:px-6">
         <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">
           {MAIN_SERVICES.map((service, index) => (
             <motion.article

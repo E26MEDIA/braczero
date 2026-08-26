@@ -32,7 +32,7 @@ function ServiceCard({
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.55, delay: index * 0.1 }}
       whileHover={{ y: -8 }}
-      className="group relative flex min-h-[340px] flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-bg-elevated/80 p-7 transition duration-500 hover:border-accent/40"
+      className="group relative flex min-h-0 flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-bg-elevated/80 p-5 transition duration-500 hover:border-accent/40 sm:min-h-[340px] sm:p-7"
       style={{
         backgroundImage:
           "radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(183,28,40,0.16), transparent 42%)",
@@ -71,7 +71,7 @@ function ServiceCard({
 
 export function Services() {
   return (
-    <section id="services" className="relative px-6 py-24 md:py-32">
+    <section id="services" className="relative px-4 py-16 sm:px-6 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -84,7 +84,7 @@ export function Services() {
             <p className="font-mono text-xs tracking-[0.28em] text-accent uppercase">
               What we provide
             </p>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-5xl">
               Build fast. Secure deeper.
             </h2>
             <p className="mt-4 text-muted md:text-lg">

@@ -18,8 +18,8 @@ export function Marquee() {
 
   return (
     <section className="group relative overflow-hidden border-y border-white/10 py-5">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-bg to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-bg to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-bg to-transparent sm:w-24" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-bg to-transparent sm:w-24" />
       <div className="marquee-track flex w-max gap-10 whitespace-nowrap group-hover:[animation-play-state:paused]">
         {loop.map((item, i) => (
           <motion.span

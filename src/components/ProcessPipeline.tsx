@@ -98,7 +98,7 @@ export function ProcessPipeline({ showFooterLink = true }: Props) {
       </div>
 
       <div className="relative grid lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="relative border-b border-white/10 p-7 md:p-10 lg:border-r lg:border-b-0">
+        <div className="relative border-b border-white/10 p-5 sm:p-7 md:p-10 lg:border-r lg:border-b-0">
           <div className="mb-8 flex items-center gap-3">
             <span className="font-mono text-xs tracking-[0.22em] text-accent uppercase">
               Delivery pipeline
@@ -120,7 +120,7 @@ export function ProcessPipeline({ showFooterLink = true }: Props) {
                 </span>
                 <div>
                   <p className="font-mono text-sm text-accent/70">{current.id}</p>
-                  <h3 className="mt-1 font-display text-3xl font-bold tracking-tight md:text-4xl">
+                  <h3 className="mt-1 font-display text-2xl font-bold tracking-tight md:text-4xl">
                     {current.title}
                   </h3>
                 </div>
@@ -214,7 +214,7 @@ export function ProcessPipeline({ showFooterLink = true }: Props) {
                         {step.title}
                       </h4>
                     </div>
-                    <p className={`mt-1 line-clamp-1 text-sm ${isActive ? "text-muted" : "text-muted/70"}`}>
+                    <p className={`mt-1 line-clamp-2 text-sm sm:line-clamp-1 ${isActive ? "text-muted" : "text-muted/70"}`}>
                       {step.copy}
                     </p>
                   </div>
@@ -239,7 +239,7 @@ export function ProcessPipeline({ showFooterLink = true }: Props) {
         </div>
       </div>
 
-      <div className="flex flex-col items-start justify-between gap-4 border-t border-white/10 px-7 py-5 md:flex-row md:items-center md:px-10">
+      <div className="flex flex-col items-start justify-between gap-4 border-t border-white/10 px-5 py-5 md:flex-row md:items-center md:px-10">
         <p className="text-sm text-muted">
           Same pipeline on every engagement—build and security move as one system.
         </p>

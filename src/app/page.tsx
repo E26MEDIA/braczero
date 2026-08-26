@@ -14,8 +14,8 @@ export default function Home() {
       <Services />
       <Process />
       <Capabilities />
-      <section className="px-6 pb-28">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#0e1520] to-[#070a10] p-8 md:flex-row md:items-center md:p-12">
+      <section className="px-4 pb-24 sm:px-6 md:pb-28">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#0e1520] to-[#070a10] p-6 sm:p-8 md:flex-row md:items-center md:p-12">
           <div>
             <p className="font-mono text-xs tracking-[0.28em] text-accent uppercase">
               Next step
@@ -30,13 +30,13 @@ export default function Home() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:brightness-110"
+              className="w-full rounded-full bg-accent px-6 py-3.5 text-center text-sm font-semibold text-white transition hover:brightness-110 md:w-auto"
             >
               Contact Us
             </Link>
             <Link
               href="/about"
-              className="rounded-full border border-white/15 px-6 py-3.5 text-sm text-fg transition hover:border-accent/50 hover:text-accent"
+              className="w-full rounded-full border border-white/15 px-6 py-3.5 text-center text-sm text-fg transition hover:border-accent/50 hover:text-accent md:w-auto"
             >
               About Us
             </Link>

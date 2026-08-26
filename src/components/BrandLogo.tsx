@@ -15,7 +15,11 @@ export function BrandLogo({ compact = false, className = "" }: Props) {
         width={639}
         height={154}
         priority
-        className={compact ? "h-8 w-auto md:h-9" : "h-10 w-auto md:h-11"}
+        className={
+          compact
+            ? "h-7 w-auto max-w-[min(200px,58vw)] object-contain object-left md:h-9 md:max-w-none"
+            : "h-9 w-auto max-w-[min(240px,70vw)] object-contain object-left md:h-11 md:max-w-none"
+        }
       />
     </Link>
   );

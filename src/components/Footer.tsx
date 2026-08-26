@@ -13,7 +13,7 @@ export function Footer() {
         aria-hidden
       />
 
-      <div className="mx-auto max-w-6xl px-6 pt-16 pb-10">
+      <div className="mx-auto max-w-6xl px-4 pt-12 pb-[calc(5.75rem+env(safe-area-inset-bottom))] sm:px-6 sm:pt-16 lg:pb-10">
         <div className="grid gap-12 lg:grid-cols-[1.35fr_0.85fr_0.95fr_1.15fr] lg:gap-10">
           <div>
             <BrandLogo compact className="text-fg" />
@@ -82,7 +82,7 @@ export function Footer() {
 
         <div className="mt-14 border-t border-white/10 pt-8">
           <p className="text-center text-xs tracking-wide text-muted">
-            © {new Date().getFullYear()} BracZero Tech Private Limited. All rights reserved.
+            © 2026 {COMPANY.name}. All rights reserved.
           </p>
         </div>
       </div>

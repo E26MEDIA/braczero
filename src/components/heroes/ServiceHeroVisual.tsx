@@ -6,7 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 export function ServiceHeroVisual({ scene }: { scene: ServiceSceneId }) {
   const reduce = useReducedMotion();
   return (
-    <div className="relative h-[280px] w-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#08080a] md:h-[340px]">
+    <div className="relative h-[220px] w-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#08080a] sm:h-[280px] md:h-[340px]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(183,28,40,0.16),transparent_65%)]" />
       {scene === "cyber" && <CyberVisual reduce={!!reduce} />}
       {scene === "software" && <SoftwareVisual reduce={!!reduce} />}

@@ -36,7 +36,7 @@ export function Capabilities() {
   const glowY = useTransform(smy, [0, 1], ["20%", "80%"]);
 
   return (
-    <section id="work" className="px-6 py-24 md:py-32">
+    <section id="work" className="px-4 py-16 sm:px-6 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export function Capabilities() {
           <p className="font-mono text-xs tracking-[0.28em] text-accent uppercase">
             Capabilities
           </p>
-          <h2 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-5xl">
+          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-5xl">
             Full-stack delivery with a security spine.
           </h2>
         </motion.div>
@@ -64,7 +64,7 @@ export function Capabilities() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
-          className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#090d14] p-8 md:p-12"
+          className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#090d14] p-5 sm:p-8 md:p-12"
         >
           <motion.div
             className="pointer-events-none absolute h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl"

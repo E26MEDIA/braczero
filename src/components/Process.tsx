@@ -5,7 +5,7 @@ import { ProcessPipeline } from "./ProcessPipeline";
 
 export function Process() {
   return (
-    <section id="process" className="relative overflow-hidden px-6 py-24 md:py-28">
+    <section id="process" className="relative overflow-hidden px-4 py-16 sm:px-6 md:py-28">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(183,28,40,0.08),transparent_55%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,rgba(124,92,255,0.05),transparent_50%)]" />
 
@@ -21,7 +21,7 @@ export function Process() {
             <p className="font-mono text-xs tracking-[0.28em] text-accent uppercase">
               How we work
             </p>
-            <h2 className="mt-4 max-w-lg font-display text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="mt-4 max-w-lg font-display text-3xl font-bold tracking-tight md:text-5xl">
               A process built for clarity and control.
             </h2>
           </div>

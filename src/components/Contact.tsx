@@ -26,9 +26,9 @@ export function Contact({ hideIntro = false }: Props) {
   }
 
   return (
-    <section id="contact" className="px-6 py-16 md:py-24">
+    <section id="contact" className="px-4 py-12 sm:px-6 md:py-24">
       <div
-        className={`mx-auto grid max-w-6xl gap-12 overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#141416] to-[#070708] p-8 md:p-12 lg:p-14 ${
+        className={`mx-auto grid max-w-6xl gap-10 overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#141416] to-[#070708] p-5 sm:p-8 md:p-12 lg:p-14 ${
           hideIntro ? "" : "md:grid-cols-[1.1fr_0.9fr]"
         }`}
       >
@@ -42,7 +42,7 @@ export function Contact({ hideIntro = false }: Props) {
             <p className="font-mono text-xs tracking-[0.28em] text-accent uppercase">
               Let&apos;s talk
             </p>
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-5xl">
               Ready when zero risk meets real ambition.
             </h2>
             <p className="mt-5 max-w-md text-muted md:text-lg">

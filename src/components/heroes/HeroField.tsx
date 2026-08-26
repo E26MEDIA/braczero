@@ -35,8 +35,9 @@ export function HeroField() {
       const { width, height } = surface.getBoundingClientRect();
       gfx.clearRect(0, 0, width, height);
 
-      const cols = 42;
-      const rows = 26;
+      const mobile = width < 640;
+      const cols = mobile ? 22 : 42;
+      const rows = mobile ? 16 : 26;
       const parallaxX = (mouse.x - 0.5) * 56;
       const parallaxY = (mouse.y - 0.5) * 24;
 

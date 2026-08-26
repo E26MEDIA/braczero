@@ -15,7 +15,7 @@ export default function ContactPage() {
         description="Share a few details and we’ll come back with next steps. No black box. No pressure pitch."
       />
 
-      <section className="px-6 pb-8">
+      <section className="px-4 pb-8 sm:px-6">
         <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <motion.div
             initial={{ opacity: 0, y: 18 }}

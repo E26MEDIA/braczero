@@ -37,7 +37,7 @@ export default function AboutPage() {
         description="We’re an IT partner for brands that want premium software and cybersecurity in the same conversation—not bolted on after the fact."
       />
 
-      <section className="px-6 pb-20">
+      <section className="px-4 pb-20 sm:px-6">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -85,7 +85,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-6 pb-20">
+      <section className="px-4 pb-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -115,7 +115,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-6 pb-20">
+      <section className="px-4 pb-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
             How we partner
@@ -139,7 +139,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-6 pb-28">
+      <section className="px-4 pb-28 sm:px-6">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-xl border border-white/10 bg-gradient-to-br from-[#0e1520] to-[#070a10] p-8 md:flex-row md:items-center md:p-10">
           <div>
             <h3 className="font-display text-2xl font-bold md:text-3xl">
@@ -149,7 +149,7 @@ export default function AboutPage() {
           </div>
           <Link
             href="/contact"
-            className="rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-white"
+            className="w-full rounded-full bg-accent px-6 py-3.5 text-center text-sm font-semibold text-white md:w-auto"
           >
             Contact Us →
           </Link>

@@ -35,6 +35,12 @@ export function ServiceChatbot() {
   const [lead, setLead] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
   useEffect(() => {
     setMessages([{ role: "bot", text: ctx.greeting }]);
     setDraft("");
@@ -66,15 +72,20 @@ export function ServiceChatbot() {
     setSent(true);
   }
 
+  if (!ready) return null;
+
   return (
-    <div className="fixed right-4 bottom-4 z-50 md:right-6 md:bottom-6">
+    <div
+      data-chatbot
+      className="fixed z-50 right-[max(0.75rem,env(safe-area-inset-right))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] md:right-6 md:bottom-6"
+    >
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ opacity: 0, y: 16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.96 }}
-            className="mb-3 flex h-[min(560px,78vh)] w-[min(100vw-2rem,380px)] flex-col overflow-hidden rounded-3xl border border-white/12 bg-[#0a0e14]/95 shadow-[0_24px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl"
+            className="mb-3 flex h-[min(520px,calc(100dvh-7.5rem))] w-[min(calc(100vw-1.5rem),380px)] flex-col overflow-hidden rounded-3xl border border-white/12 bg-[#0a0e14]/95 shadow-[0_24px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl"
           >
             <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
               <div className="flex items-center gap-3">
@@ -212,7 +223,7 @@ export function ServiceChatbot() {
         type="button"
         aria-label="Open AI chatbot"
         onClick={() => setOpen((v) => !v)}
-        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-[0_12px_40px_rgba(183,28,40,0.35)]"
+        className="relative flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white shadow-[0_12px_40px_rgba(183,28,40,0.35)] md:h-14 md:w-14"
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.96 }}
       >
