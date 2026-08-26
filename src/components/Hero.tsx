@@ -29,7 +29,7 @@ export function Hero() {
   }, [reduceMotion]);
 
   return (
-    <section id="top" className="relative h-[100dvh] overflow-hidden bg-[#050506] md:h-auto md:min-h-[100svh]">
+    <section id="top" className="relative overflow-hidden bg-[#050506] md:min-h-[100svh]">
       <motion.div
         className="pointer-events-none absolute inset-0"
         animate={
@@ -74,7 +74,7 @@ export function Hero() {
           </motion.p>
         ))}
 
-      <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-between px-4 pt-[calc(4.5rem+env(safe-area-inset-top))] pb-[calc(1rem+env(safe-area-inset-bottom))] sm:px-6 md:pt-36 md:pb-10">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-4 pt-[calc(4.5rem+env(safe-area-inset-top))] pb-5 sm:px-6 md:min-h-[100svh] md:justify-between md:pt-36 md:pb-10">
         <div className="flex max-w-3xl flex-col pt-2 sm:pt-4 md:flex-1 md:justify-center">
           <h1 className="font-display text-[clamp(1.7rem,7.4vw,5.8rem)] leading-[1.08] font-extrabold tracking-tight text-white sm:leading-[0.92]">
             <SplitText text="Being exposed" delay={0.08} />
@@ -92,7 +92,7 @@ export function Hero() {
           </motion.p>
         </div>
 
-        <div className="mt-auto flex shrink-0 flex-col gap-3 pt-8 sm:gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mt-5 flex shrink-0 flex-col gap-3 sm:mt-8 sm:gap-6 md:mt-auto md:pt-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="grid min-w-0 grid-cols-2 items-stretch gap-2 sm:gap-3 md:flex md:overflow-x-auto md:pb-1">
             <div className="hidden shrink-0 grid-cols-4 gap-1 self-center lg:grid" aria-hidden>
               {Array.from({ length: 16 }).map((_, i) => (
