@@ -83,7 +83,10 @@ export function ServiceChatbot() {
           honey: data.get("company_website"),
         });
       if (!payload.ok) {
-        setMessages((m) => [...m, { role: "bot", text: payload.error || "Could not send. Try the contact form." }]);
+        setMessages((m) => [
+          ...m,
+          { role: "bot", text: payload.error || "Could not send. Email braczerotech@gmail.com and we’ll pick it up." },
+        ]);
         return;
       }
       setSent(true);

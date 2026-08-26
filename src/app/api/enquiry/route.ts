@@ -4,7 +4,7 @@ import {
   originAllowed,
   verifyEnquiryToken,
 } from "@/lib/enquiryToken";
-import { parseEnquiry, type EnquiryInput } from "@/lib/enquiry";
+import { enquiryPlainBody, parseEnquiry } from "@/lib/enquiry";
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
@@ -29,24 +29,6 @@ function limited(key: string) {
   recent.push(now);
   hits.set(key, recent);
   return false;
-}
-
-function plainBody(data: EnquiryInput) {
-  const { name, email, service, message, other, company, phone } = data;
-  return [
-    "New BracZero enquiry",
-    "",
-    `Name: ${name}`,
-    `Email: ${email}`,
-    company ? `Company: ${company}` : null,
-    phone ? `Phone: ${phone}` : null,
-    `Service: ${service}${other ? ` (${other})` : ""}`,
-    "",
-    "Message:",
-    message,
-  ]
-    .filter((line) => line !== null)
-    .join("\n");
 }
 
 function siteOrigin(request: Request) {
@@ -135,7 +117,10 @@ async function deliver(text: string, replyTo: string, subject: string, origin: s
 
 export async function GET() {
   try {
-    return NextResponse.json({ ok: true, token: issueEnquiryToken() });
+    return NextResponse.json(
+      { ok: true, token: issueEnquiryToken() },
+      { headers: { "Cache-Control": "no-store" } },
+    );
   } catch {
     return NextResponse.json({ ok: false, error: "Enquiry is not configured." }, { status: 503 });
   }
@@ -174,17 +159,10 @@ export async function POST(request: Request) {
 
   const subject = `BracZero enquiry — ${parsed.data.service}`;
   try {
-    await deliver(plainBody(parsed.data), parsed.data.email, subject, siteOrigin(request));
+    await deliver(enquiryPlainBody(parsed.data), parsed.data.email, subject, siteOrigin(request));
   } catch {
-    return NextResponse.json(
-      {
-        ok: false,
-        error:
-          "Could not send just now. Email us at braczerotech@gmail.com, or wait a minute if this is the first enquiry — we may need to activate mail.",
-      },
-      { status: 502 },
-    );
+    return NextResponse.json({ ok: true, delivered: false, allowClientRelay: true });
   }
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, delivered: true });
 }

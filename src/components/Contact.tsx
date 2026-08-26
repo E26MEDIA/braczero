@@ -21,11 +21,13 @@ export function Contact({ hideIntro = false }: Props) {
   const [sent, setSent] = useState(false);
   const [need, setNeed] = useState<string>(SERVICES[0]);
   const [error, setError] = useState("");
+  const [mailto, setMailto] = useState("");
   const [busy, setBusy] = useState(false);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
+    setMailto("");
     setBusy(true);
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -40,13 +42,15 @@ export function Contact({ hideIntro = false }: Props) {
         });
       if (!payload.ok) {
         setError(payload.error || "Could not send. Try again.");
+        setMailto(payload.mailto || `mailto:${COMPANY.enquiryEmail}`);
         return;
       }
       setSent(true);
       form.reset();
       setNeed(SERVICES[0]);
     } catch {
-      setError("Could not send. Email us at braczerotech@gmail.com.");
+      setError(`Could not send from the site. Email ${COMPANY.enquiryEmail} and we’ll pick it up.`);
+      setMailto(`mailto:${COMPANY.enquiryEmail}`);
     } finally {
       setBusy(false);
     }
@@ -166,7 +170,19 @@ export function Contact({ hideIntro = false }: Props) {
               placeholder="Brief on scope, timeline, or challenges…"
             />
           </label>
-          {error ? <p className="text-sm text-accent">{error}</p> : null}
+          {error ? (
+            <div className="rounded-xl border border-accent/50 bg-accent/15 px-4 py-3 text-sm text-white">
+              <p>{error}</p>
+              {mailto ? (
+                <a
+                  href={mailto}
+                  className="mt-2 inline-block font-semibold text-accent underline underline-offset-2"
+                >
+                  Open email to {COMPANY.enquiryEmail}
+                </a>
+              ) : null}
+            </div>
+          ) : null}
           <motion.button
             type="submit"
             disabled={busy || sent}

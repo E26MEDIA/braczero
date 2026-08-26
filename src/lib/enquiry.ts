@@ -1,3 +1,5 @@
+import { COMPANY } from "@/lib/company";
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const CONTROL = /[\u0000-\u001F\u007F]/g;
 
@@ -43,4 +45,27 @@ export function parseEnquiry(raw: unknown): { ok: true; data: EnquiryInput } | {
     ok: true,
     data: { name, email, service, message, other, company, phone, honey: "" },
   };
+}
+
+export function enquiryPlainBody(data: EnquiryInput) {
+  const { name, email, service, message, other, company, phone } = data;
+  return [
+    "New BracZero enquiry",
+    "",
+    `Name: ${name}`,
+    `Email: ${email}`,
+    company ? `Company: ${company}` : null,
+    phone ? `Phone: ${phone}` : null,
+    `Service: ${service}${other ? ` (${other})` : ""}`,
+    "",
+    "Message:",
+    message,
+  ]
+    .filter((line) => line !== null)
+    .join("\n");
+}
+
+export function enquiryMailto(data: EnquiryInput) {
+  const subject = `BracZero enquiry — ${data.service}`;
+  return `mailto:${COMPANY.enquiryEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquiryPlainBody(data))}`;
 }
