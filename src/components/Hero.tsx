@@ -76,7 +76,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-4 pt-[calc(4.75rem+env(safe-area-inset-top))] pb-8 sm:px-6 md:min-h-[100svh] md:justify-between md:pt-36 md:pb-10">
         <div className="flex max-w-3xl flex-col pt-1 sm:pt-4 md:flex-1 md:justify-center">
-          <h1 className="font-display text-[clamp(1.5rem,6.4vw,5.8rem)] leading-[1.12] font-extrabold tracking-tight text-white sm:leading-[0.92]">
+          <h1 className="font-display text-[clamp(1.85rem,7.8vw,5.8rem)] leading-[1.1] font-extrabold tracking-tight text-white sm:leading-[0.92]">
             <SplitText text="Being exposed" delay={0.08} />
             <span className="block">
               <SplitText text="is not your fault." delay={0.28} />
