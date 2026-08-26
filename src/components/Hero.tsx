@@ -74,7 +74,7 @@ export function Hero() {
           </motion.p>
         ))}
 
-      <div className="relative z-10 mx-auto flex h-[100svh] max-h-[100svh] min-h-[100svh] max-w-6xl flex-col justify-between px-4 pt-[calc(4.6rem+env(safe-area-inset-top))] pb-[calc(5.25rem+env(safe-area-inset-bottom))] sm:px-6 md:h-auto md:max-h-none md:min-h-[100svh] md:pt-36 md:pb-10">
+      <div className="relative z-10 mx-auto flex h-[100svh] max-h-[100svh] min-h-[100svh] max-w-6xl flex-col justify-start px-4 pt-[calc(4.6rem+env(safe-area-inset-top))] pb-[calc(5.25rem+env(safe-area-inset-bottom))] sm:px-6 md:h-auto md:max-h-none md:min-h-[100svh] md:justify-between md:pt-36 md:pb-10">
         <div className="flex max-w-3xl shrink-0 flex-col pt-1 sm:pt-4 md:flex-1 md:justify-center">
           <h1 className="font-display text-[clamp(1.55rem,7.2vw,5.8rem)] leading-[1.08] font-extrabold tracking-tight text-white sm:leading-[0.92]">
             <SplitText text="Being exposed" delay={0.08} />
