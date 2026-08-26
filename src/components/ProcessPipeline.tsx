@@ -151,7 +151,7 @@ export function ProcessPipeline({ showFooterLink = true }: Props) {
               />
               {!reduceMotion && (
                 <motion.span
-                  className="absolute top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_12px_rgba(62,207,186,0.9)]"
+                  className="absolute top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_12px_rgba(183,28,40,0.9)]"
                   animate={{ left: `calc(${((active + 1) / steps.length) * 100}% - 4px)` }}
                   transition={{ duration: 0.5, ease }}
                 />
@@ -220,7 +220,7 @@ export function ProcessPipeline({ showFooterLink = true }: Props) {
                   </div>
                   <span
                     className={`hidden h-2 w-2 shrink-0 rounded-full sm:block ${
-                      isActive ? "bg-accent shadow-[0_0_10px_rgba(62,207,186,0.8)]" : "bg-white/15"
+                      isActive ? "bg-accent shadow-[0_0_10px_rgba(183,28,40,0.8)]" : "bg-white/15"
                     }`}
                   />
                 </div>

@@ -1,119 +1,133 @@
 "use client";
 
+import { COMPANY } from "@/lib/company";
+import { HeroField } from "@/components/heroes/HeroField";
+import { MAIN_SERVICES } from "@/lib/services";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import { BracZeroEcosystem } from "@/components/ecosystem/BracZeroEcosystem";
+import { useEffect, useState } from "react";
 import { SplitText } from "./SplitText";
 
-const particles = Array.from({ length: 10 }, (_, i) => ({
-  id: i,
-  x: `${8 + ((i * 47) % 84)}%`,
-  y: `${10 + ((i * 29) % 78)}%`,
-  size: 2 + (i % 3),
-  delay: (i % 7) * 0.35,
-  duration: 4 + (i % 5),
-}));
+const snippets = [
+  { top: "18%", right: "8%", text: "function scan(surface) {" },
+  { top: "28%", right: "16%", text: "if (threat.found) isolate()" },
+  { top: "42%", right: "4%", text: "switch (error) {" },
+  { top: "54%", right: "14%", text: "case 'breach': zero()" },
+  { top: "66%", right: "7%", text: "deploy(secureBuild)" },
+];
 
 export function Hero() {
   const reduceMotion = useReducedMotion() ?? false;
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    if (reduceMotion) return;
+    const id = window.setInterval(() => {
+      setActive((n) => (n + 1) % MAIN_SERVICES.length);
+    }, 2800);
+    return () => window.clearInterval(id);
+  }, [reduceMotion]);
 
   return (
-    <section id="top" className="relative min-h-[100svh] overflow-hidden pt-28">
-      <div className="pointer-events-none absolute inset-0 mesh mesh-animate" />
-      <div className="pointer-events-none absolute inset-0 grid-bg" />
-
-      {!reduceMotion &&
-        particles.map((p) => (
-          <motion.span
-            key={p.id}
-            aria-hidden
-            className="pointer-events-none absolute rounded-full bg-accent/40"
-            style={{
-              left: p.x,
-              top: p.y,
-              width: p.size,
-              height: p.size,
-            }}
-            animate={{
-              y: [0, -14, 0],
-              opacity: [0.12, 0.55, 0.12],
-            }}
-            transition={{
-              duration: p.duration,
-              delay: p.delay,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-
-      <div className="relative mx-auto grid min-h-[calc(100svh-7rem)] max-w-6xl items-end gap-10 px-6 pb-16 md:grid-cols-[1.05fr_0.95fr] md:items-center md:pb-20">
-        <div className="relative z-10">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-5 font-mono text-xs tracking-[0.28em] text-accent uppercase"
-          >
-            <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent align-middle" />
-            IT · Software · Security
-          </motion.p>
-
-          <h1 className="font-display text-[clamp(3.4rem,10vw,6.6rem)] leading-[0.9] font-extrabold tracking-tight">
-            <SplitText text="Brac" delay={0.15} />
-            <span className="text-accent">
-              <SplitText text="Zero" delay={0.35} />
-            </span>
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.55 }}
-            className="mt-6 max-w-md text-lg leading-relaxed text-muted md:text-xl"
-          >
-            We design and ship websites, apps, and cyber defenses that feel
-            inevitable—not incremental.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.7 }}
-            className="mt-9 flex flex-wrap items-center gap-3"
-          >
-            <Link
-              href="/contact"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-fg px-6 py-3.5 text-sm font-medium text-bg"
-            >
-              <span className="absolute inset-0 translate-y-full bg-accent transition duration-400 group-hover:translate-y-0" />
-              <span className="relative">Start a project</span>
-              <span className="relative transition group-hover:translate-x-0.5">→</span>
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center rounded-full border border-white/15 px-6 py-3.5 text-sm text-fg transition hover:border-accent/50 hover:text-accent"
-            >
-              Explore services
-            </Link>
-          </motion.div>
-        </div>
-
-        <BracZeroEcosystem />
-      </div>
+    <section id="top" className="relative min-h-[100svh] overflow-hidden bg-[#050506]">
+      <motion.div
+        className="pointer-events-none absolute inset-0"
+        animate={
+          reduceMotion
+            ? undefined
+            : {
+                background: [
+                  "radial-gradient(ellipse at 80% 90%, rgba(183,28,40,0.32), transparent 55%)",
+                  "radial-gradient(ellipse at 62% 70%, rgba(183,28,40,0.22), transparent 58%)",
+                  "radial-gradient(ellipse at 88% 82%, rgba(183,28,40,0.34), transparent 52%)",
+                  "radial-gradient(ellipse at 80% 90%, rgba(183,28,40,0.32), transparent 55%)",
+                ],
+              }
+        }
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,#050506_0%,transparent_28%,transparent_72%,#050506_100%)]" />
+      <HeroField />
 
       {!reduceMotion && (
-        <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 md:block">
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-[10px] tracking-[0.25em] text-muted uppercase"
-          >
-            Scroll
-            <span className="h-8 w-px bg-gradient-to-b from-accent to-transparent" />
-          </motion.div>
-        </div>
+        <motion.div
+          className="pointer-events-none absolute inset-x-0 h-24 bg-gradient-to-b from-transparent via-accent/20 to-transparent"
+          animate={{ top: ["8%", "86%", "8%"] }}
+          transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
+        />
       )}
+
+      {!reduceMotion &&
+        snippets.map((s, i) => (
+          <motion.p
+            key={s.text}
+            className="pointer-events-none absolute hidden font-mono text-[11px] tracking-wide text-accent/45 md:block lg:text-xs"
+            style={{ top: s.top, right: s.right }}
+            animate={{
+              y: [0, i % 2 === 0 ? -16 : 16, 0],
+              x: [0, i % 2 === 0 ? 8 : -8, 0],
+              opacity: [0.15, 0.8, 0.15],
+            }}
+            transition={{ duration: 4.2 + i * 0.35, repeat: Infinity, ease: "easeInOut" }}
+          >
+            {s.text}
+          </motion.p>
+        ))}
+
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-between px-6 pt-32 pb-8 md:pt-36 md:pb-10">
+        <div className="flex max-w-3xl flex-1 flex-col justify-center pt-4">
+          <h1 className="font-display text-[clamp(2.6rem,8vw,5.8rem)] leading-[0.92] font-extrabold tracking-tight text-white">
+            <SplitText text="Being exposed" delay={0.08} />
+            <span className="block">
+              <SplitText text="is not your fault." delay={0.28} />
+            </span>
+          </h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55 }}
+            className="mt-6 font-display text-xl tracking-tight text-accent md:text-3xl"
+          >
+            {COMPANY.tagline}
+          </motion.p>
+        </div>
+
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex min-w-0 flex-1 items-stretch gap-3 overflow-x-auto pb-1">
+            <div className="hidden shrink-0 grid-cols-4 gap-1 self-center sm:grid" aria-hidden>
+              {Array.from({ length: 16 }).map((_, i) => (
+                <motion.span
+                  key={i}
+                  className="h-1 w-1 rounded-full bg-white/35"
+                  animate={reduceMotion ? undefined : { opacity: [0.25, 1, 0.25] }}
+                  transition={{ duration: 1.6, delay: i * 0.08, repeat: Infinity }}
+                />
+              ))}
+            </div>
+            {MAIN_SERVICES.map((service, i) => {
+              const on = active === i;
+              return (
+                <Link
+                  key={service.href}
+                  href={service.href}
+                  onMouseEnter={() => setActive(i)}
+                  className={`flex min-w-[160px] flex-1 items-center justify-between gap-3 rounded-md px-4 py-4 text-sm font-medium transition md:min-w-[180px] md:px-5 md:py-5 ${
+                    on
+                      ? "bg-accent text-white"
+                      : "bg-white/5 text-white hover:bg-white/10"
+                  }`}
+                >
+                  <span>{service.title}</span>
+                  <span aria-hidden>→</span>
+                </Link>
+              );
+            })}
+          </div>
+          <p className="shrink-0 text-right font-mono text-[10px] tracking-[0.22em] text-white/45 uppercase">
+            {COMPANY.tagline}
+          </p>
+        </div>
+      </div>
     </section>
   );
 }

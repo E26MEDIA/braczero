@@ -25,9 +25,9 @@ export function ConnectionPath({ activeId, cyberPulse, reduceMotion }: Props) {
     >
       <defs>
         <linearGradient id="eco-line" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="rgba(62,207,186,0.05)" />
-          <stop offset="50%" stopColor="rgba(62,207,186,0.55)" />
-          <stop offset="100%" stopColor="rgba(62,207,186,0.08)" />
+          <stop offset="0%" stopColor="rgba(183,28,40,0.05)" />
+          <stop offset="50%" stopColor="rgba(183,28,40,0.55)" />
+          <stop offset="100%" stopColor="rgba(183,28,40,0.08)" />
         </linearGradient>
         <filter id="eco-glow">
           <feGaussianBlur stdDeviation="1.2" result="b" />
@@ -57,7 +57,7 @@ export function ConnectionPath({ activeId, cyberPulse, reduceMotion }: Props) {
             {!reduceMotion && (
               <circle
                 r={strong ? 2.2 : 1.5}
-                fill="#3ecfba"
+                fill="#b71c28"
                 opacity={dim ? 0 : strong ? 0.95 : 0.5}
                 filter={strong ? "url(#eco-glow)" : undefined}
               >

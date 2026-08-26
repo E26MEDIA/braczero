@@ -6,7 +6,7 @@ import { ProcessPipeline } from "./ProcessPipeline";
 export function Process() {
   return (
     <section id="process" className="relative overflow-hidden px-6 py-24 md:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(62,207,186,0.08),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(183,28,40,0.08),transparent_55%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,rgba(124,92,255,0.05),transparent_50%)]" />
 
       <div className="relative mx-auto max-w-6xl">

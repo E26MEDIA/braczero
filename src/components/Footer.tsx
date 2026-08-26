@@ -1,56 +1,91 @@
+import { BrandLogo } from "@/components/BrandLogo";
+import { COMPANY } from "@/lib/company";
+import { MAIN_SERVICES } from "@/lib/services";
 import Link from "next/link";
+
+const MAPS_URL = `https://maps.google.com/?q=${encodeURIComponent(COMPANY.address)}`;
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 px-6 py-12">
-      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
-        <div>
-          <p className="font-display text-lg font-bold">
-            Brac<span className="text-accent">Zero</span>
-          </p>
-          <p className="mt-2 max-w-xs text-sm text-muted">
-            Software, apps, and cybersecurity—built to perform and stay protected.
-          </p>
-        </div>
-        <div>
-          <p className="font-mono text-[10px] tracking-widest text-muted uppercase">
-            Company
-          </p>
-          <div className="mt-3 flex flex-col gap-2 text-sm text-muted">
-            <Link href="/about" className="hover:text-fg">
-              About Us
-            </Link>
-            <Link href="/process" className="hover:text-fg">
-              Process
-            </Link>
-            <Link href="/work" className="hover:text-fg">
-              Work
-            </Link>
-            <Link href="/contact" className="hover:text-fg">
-              Contact Us
-            </Link>
+    <footer className="relative border-t border-white/10">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent"
+        aria-hidden
+      />
+
+      <div className="mx-auto max-w-6xl px-6 pt-16 pb-10">
+        <div className="grid gap-12 lg:grid-cols-[1.35fr_0.85fr_0.95fr_1.15fr] lg:gap-10">
+          <div>
+            <BrandLogo compact className="text-fg" />
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
+              {COMPANY.tagline} Cybersecurity, software, AI, and data—from Mangalore.
+            </p>
+          </div>
+
+          <nav aria-label="Company">
+            <p className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase">
+              Company
+            </p>
+            <div className="mt-5 flex flex-col gap-3 text-sm text-muted">
+              <Link href="/about" className="transition hover:text-fg">
+                About Us
+              </Link>
+              <Link href="/process" className="transition hover:text-fg">
+                Process
+              </Link>
+              <Link href="/work" className="transition hover:text-fg">
+                Work
+              </Link>
+              <Link href="/contact" className="transition hover:text-fg">
+                Contact Us
+              </Link>
+            </div>
+          </nav>
+
+          <nav aria-label="Services">
+            <p className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase">
+              Services
+            </p>
+            <div className="mt-5 flex flex-col gap-3 text-sm text-muted">
+              {MAIN_SERVICES.map((s) => (
+                <Link key={s.href} href={s.href} className="transition hover:text-fg">
+                  {s.title}
+                </Link>
+              ))}
+            </div>
+          </nav>
+
+          <div>
+            <p className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase">
+              Contact
+            </p>
+            <div className="mt-5 space-y-3 text-sm leading-relaxed text-muted">
+              <a href={`mailto:${COMPANY.email}`} className="block transition hover:text-fg">
+                {COMPANY.email}
+              </a>
+              {COMPANY.phones.map((p) => (
+                <a key={p.href} href={p.href} className="block transition hover:text-fg">
+                  {p.display}
+                </a>
+              ))}
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="block max-w-xs transition hover:text-fg"
+              >
+                {COMPANY.address}
+              </a>
+            </div>
           </div>
         </div>
-        <div>
-          <p className="font-mono text-[10px] tracking-widest text-muted uppercase">
-            Services
+
+        <div className="mt-14 border-t border-white/10 pt-8">
+          <p className="text-center text-xs tracking-wide text-muted">
+            © {new Date().getFullYear()} BracZero Tech Private Limited. All rights reserved.
           </p>
-          <div className="mt-3 flex flex-col gap-2 text-sm text-muted">
-            <Link href="/services/website" className="hover:text-fg">
-              Website Development
-            </Link>
-            <Link href="/services/app" className="hover:text-fg">
-              App Development
-            </Link>
-            <Link href="/services/cybersecurity" className="hover:text-fg">
-              Cybersecurity
-            </Link>
-          </div>
         </div>
       </div>
-      <p className="mx-auto mt-10 max-w-6xl text-xs text-muted">
-        © {new Date().getFullYear()} BracZero. All rights reserved.
-      </p>
     </footer>
   );
 }

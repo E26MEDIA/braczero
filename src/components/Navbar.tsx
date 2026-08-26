@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { BrandLogo } from "@/components/BrandLogo";
+import { MAIN_SERVICES } from "@/lib/services";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const links = [
   { href: "/services", label: "Services" },
@@ -13,11 +15,7 @@ const links = [
   { href: "/contact", label: "Contact Us" },
 ];
 
-const serviceLinks = [
-  { href: "/services/website", label: "Website" },
-  { href: "/services/app", label: "App" },
-  { href: "/services/cybersecurity", label: "Cybersecurity" },
-];
+const serviceLinks = MAIN_SERVICES.map((s) => ({ href: s.href, label: s.title }));
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,9 +49,7 @@ export function Navbar() {
             : "border-transparent bg-transparent"
         }`}
       >
-        <Link href="/" className="font-display text-lg font-bold tracking-tight md:text-xl">
-          Brac<span className="text-accent">Zero</span>
-        </Link>
+        <BrandLogo compact className="text-fg" />
 
         <div className="hidden items-center gap-6 lg:flex">
           <div
@@ -83,7 +79,7 @@ export function Navbar() {
                   exit={{ opacity: 0, y: 6 }}
                   className="absolute top-full left-0 pt-3"
                 >
-                  <div className="min-w-[200px] rounded-2xl border border-white/10 bg-[#0a0e14]/95 p-2 shadow-xl backdrop-blur-xl">
+                  <div className="grid min-w-[380px] grid-cols-2 gap-0.5 rounded-2xl border border-white/10 bg-[#0a0e14]/95 p-2 shadow-xl backdrop-blur-xl">
                     {serviceLinks.map((link) => (
                       <Link
                         key={link.href}
@@ -127,7 +123,7 @@ export function Navbar() {
             })}
           <Link
             href="/contact"
-            className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-bg transition hover:brightness-110"
+            className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition hover:brightness-110"
           >
             Book a call
           </Link>
@@ -187,7 +183,7 @@ export function Navbar() {
               </div>
               <Link
                 href="/contact"
-                className="mt-2 rounded-full bg-accent px-4 py-2.5 text-center text-sm font-medium text-bg"
+                className="mt-2 rounded-full bg-accent px-4 py-2.5 text-center text-sm font-medium text-white"
               >
                 Book a call
               </Link>

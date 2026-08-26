@@ -85,7 +85,7 @@ export function Capabilities() {
                   {cap.items.map((item) => (
                     <motion.li
                       key={item}
-                      whileHover={{ x: 6, color: "#3ecfba" }}
+                      whileHover={{ x: 6, color: "#b71c28" }}
                       className="cursor-default border-b border-white/10 pb-3 text-sm text-muted last:border-0"
                       transition={{ type: "spring", stiffness: 300, damping: 22 }}
                     >

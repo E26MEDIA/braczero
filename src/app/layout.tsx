@@ -21,9 +21,9 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BracZero — Software, Apps & Cybersecurity",
+  title: "BracZero — Cybersecurity, Software, AI & Data",
   description:
-    "BracZero builds premium websites, mobile apps, and cybersecurity defenses for ambitious brands.",
+    "One qubit ahead. BracZero Tech Private Limited — cybersecurity, software, AI, and data from Mangalore.",
 };
 
 export default function RootLayout({

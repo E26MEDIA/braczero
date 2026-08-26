@@ -136,7 +136,7 @@ export function BracZeroEcosystem() {
             mobile || reduceMotion
               ? {
                   background: `
-                    radial-gradient(ellipse 55% 40% at 50% 38%, rgba(62,207,186,0.14), transparent 60%),
+                    radial-gradient(ellipse 55% 40% at 50% 38%, rgba(183,28,40,0.14), transparent 60%),
                     radial-gradient(ellipse 40% 35% at 78% 70%, rgba(124,92,255,0.08), transparent 55%)
                   `,
                 }
@@ -144,9 +144,9 @@ export function BracZeroEcosystem() {
                   x: bgX,
                   y: bgY,
                   background: `
-                    radial-gradient(ellipse 55% 40% at 48% 38%, rgba(62,207,186,0.14), transparent 60%),
+                    radial-gradient(ellipse 55% 40% at 48% 38%, rgba(183,28,40,0.14), transparent 60%),
                     radial-gradient(ellipse 40% 35% at 78% 70%, rgba(124,92,255,0.08), transparent 55%),
-                    radial-gradient(ellipse 50% 40% at 20% 75%, rgba(62,207,186,0.05), transparent 50%)
+                    radial-gradient(ellipse 50% 40% at 20% 75%, rgba(183,28,40,0.05), transparent 50%)
                   `,
                 }
           }

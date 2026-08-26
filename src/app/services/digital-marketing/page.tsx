@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function Page() {
-  redirect("/services/software-apps");
+  redirect("/services/data-analytics");
 }

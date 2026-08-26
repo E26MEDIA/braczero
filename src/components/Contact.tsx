@@ -1,5 +1,6 @@
 "use client";
 
+import { COMPANY } from "@/lib/company";
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -7,8 +8,17 @@ type Props = {
   hideIntro?: boolean;
 };
 
+const SERVICES = [
+  "Cybersecurity",
+  "Software & Apps",
+  "AI & Automations",
+  "Data Analytics",
+  "Other",
+] as const;
+
 export function Contact({ hideIntro = false }: Props) {
   const [sent, setSent] = useState(false);
+  const [need, setNeed] = useState<string>(SERVICES[0]);
 
   function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -18,7 +28,7 @@ export function Contact({ hideIntro = false }: Props) {
   return (
     <section id="contact" className="px-6 py-16 md:py-24">
       <div
-        className={`mx-auto grid max-w-6xl gap-12 overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#0e1520] to-[#070a10] p-8 md:p-12 lg:p-14 ${
+        className={`mx-auto grid max-w-6xl gap-12 overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-[#141416] to-[#070708] p-8 md:p-12 lg:p-14 ${
           hideIntro ? "" : "md:grid-cols-[1.1fr_0.9fr]"
         }`}
       >
@@ -40,14 +50,19 @@ export function Contact({ hideIntro = false }: Props) {
               next step—no fluff, no black box.
             </p>
 
-            <div className="mt-10 space-y-4 text-sm">
+            <div className="mt-10 space-y-3 text-sm">
               <a
-                href="mailto:hello@braczero.com"
+                href={`mailto:${COMPANY.email}`}
                 className="block text-fg transition hover:text-accent"
               >
-                hello@braczero.com
+                {COMPANY.email}
               </a>
-              <p className="text-muted">Remote-first · Global delivery</p>
+              {COMPANY.phones.map((p) => (
+                <a key={p.href} href={p.href} className="block text-fg transition hover:text-accent">
+                  {p.display}
+                </a>
+              ))}
+              <p className="max-w-xs text-muted">{COMPANY.address}</p>
             </div>
           </motion.div>
         )}
@@ -83,15 +98,27 @@ export function Contact({ hideIntro = false }: Props) {
             <span className="mb-2 block text-xs text-muted">What do you need?</span>
             <select
               name="service"
+              value={need}
+              onChange={(e) => setNeed(e.target.value)}
               className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm outline-none transition focus:border-accent/50"
-              defaultValue="Website Development"
             >
-              <option>Website Development</option>
-              <option>App Development</option>
-              <option>Cybersecurity</option>
-              <option>Full engagement</option>
+              {SERVICES.map((option) => (
+                <option key={option}>{option}</option>
+              ))}
             </select>
           </label>
+          {need === "Other" && (
+            <label className="block">
+              <span className="mb-2 block text-xs text-muted">Tell us briefly</span>
+              <input
+                required
+                name="other"
+                maxLength={160}
+                className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm outline-none transition focus:border-accent/50"
+                placeholder="A short note on what you need…"
+              />
+            </label>
+          )}
           <label className="block">
             <span className="mb-2 block text-xs text-muted">Message</span>
             <textarea
@@ -105,7 +132,7 @@ export function Contact({ hideIntro = false }: Props) {
             type="submit"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="mt-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg transition hover:brightness-110"
+            className="mt-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:brightness-110"
           >
             {sent ? "Message noted — we’ll be in touch" : "Send enquiry"}
           </motion.button>

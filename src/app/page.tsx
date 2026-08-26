@@ -30,7 +30,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg transition hover:brightness-110"
+              className="rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-white transition hover:brightness-110"
             >
               Contact Us
             </Link>

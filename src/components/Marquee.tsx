@@ -3,14 +3,14 @@
 import { motion } from "framer-motion";
 
 const items = [
-  "Website Development",
-  "Mobile App Engineering",
-  "UI / UX Product Design",
-  "Penetration Testing",
-  "Cloud Security",
-  "Managed Cyber Defense",
-  "API & Backend Systems",
-  "Zero-Trust Architecture",
+  "Cybersecurity",
+  "Software & Apps",
+  "AI & Automations",
+  "Data Analytics",
+  "VAPT",
+  "Secure SDLC",
+  "Chatbots",
+  "BI Dashboards",
 ];
 
 export function Marquee() {
@@ -24,7 +24,7 @@ export function Marquee() {
         {loop.map((item, i) => (
           <motion.span
             key={`${item}-${i}`}
-            whileHover={{ color: "#3ecfba", scale: 1.04 }}
+            whileHover={{ color: "#b71c28", scale: 1.04 }}
             className="inline-flex cursor-default items-center gap-10 font-display text-lg font-semibold text-fg/80 md:text-xl"
           >
             {item}
@@ -33,7 +33,7 @@ export function Marquee() {
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               className="inline-block text-accent"
             >
-              ◆
+              Ø
             </motion.span>
           </motion.span>
         ))}

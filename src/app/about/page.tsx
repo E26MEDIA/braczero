@@ -8,16 +8,16 @@ import Link from "next/link";
 
 const values = [
   {
-    title: "Ship with intent",
-    copy: "Every release is deliberate—design, engineering, and security aligned before code hits production.",
+    title: "Build with intent",
+    copy: "Every release is deliberate—design, engineering, and security aligned before it goes live.",
   },
   {
     title: "Offense informs defense",
     copy: "We think like attackers so your products stay resilient under real-world pressure.",
   },
   {
-    title: "Clarity over jargon",
-    copy: "Reports, roadmaps, and decisions in plain language—so stakeholders move fast together.",
+    title: "Plain language, always",
+    copy: "We explain risk and next steps in words anyone on the team can follow—no buzzwords required.",
   },
 ];
 
@@ -49,7 +49,7 @@ export default function AboutPage() {
               Zero compromise between performance, reliability, and security.
             </h2>
             <p className="mt-5 text-muted md:text-lg">
-              BracZero exists for teams who refuse to choose between shipping fast
+              BracZero exists for teams who refuse to choose between moving fast
               and staying secure. We engineer, harden, and operate—so your product
               holds up under real load, real users, and real threats.
             </p>
@@ -64,7 +64,7 @@ export default function AboutPage() {
             <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
             <div className="grid grid-cols-2 gap-6">
               {[
-                { value: 40, suffix: "+", label: "Products shipped" },
+                { value: 40, suffix: "+", label: "Products delivered" },
                 { value: 120, suffix: "+", label: "Security assessments" },
                 { value: 99.9, suffix: "%", label: "Uptime targets", decimals: 1 },
                 { value: 24, suffix: "/7", label: "Readiness" },
@@ -149,7 +149,7 @@ export default function AboutPage() {
           </div>
           <Link
             href="/contact"
-            className="rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg"
+            className="rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-white"
           >
             Contact Us →
           </Link>

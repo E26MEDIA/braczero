@@ -35,9 +35,9 @@ export function SecurityOrbit({ brighter, reduceMotion, mobile }: Props) {
 
         {!reduceMotion && (
           <>
-            <span className="eco-orbit-dot absolute top-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_10px_rgba(62,207,186,0.8)]" />
+            <span className="eco-orbit-dot absolute top-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_10px_rgba(183,28,40,0.8)]" />
             {!mobile && (
-              <span className="eco-orbit-dot absolute bottom-[12%] right-[8%] h-1 w-1 rounded-full bg-accent/80 shadow-[0_0_8px_rgba(62,207,186,0.7)]" />
+              <span className="eco-orbit-dot absolute bottom-[12%] right-[8%] h-1 w-1 rounded-full bg-accent/80 shadow-[0_0_8px_rgba(183,28,40,0.7)]" />
             )}
           </>
         )}

@@ -1,38 +1,15 @@
 "use client";
 
-import Link from "next/link";
+import { MAIN_SERVICES } from "@/lib/services";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { MouseEvent, useRef } from "react";
-
-const services = [
-  {
-    id: "01",
-    title: "Website Development",
-    copy: "High-performance marketing sites and product platforms with cinematic motion, SEO foundations, and conversion-ready structure.",
-    points: ["Next.js & modern stacks", "Design systems", "Performance & SEO"],
-    href: "/services/website",
-  },
-  {
-    id: "02",
-    title: "App Development",
-    copy: "Native-feel mobile and web apps engineered for scale—secure APIs, clean architecture, and interfaces people actually enjoy using.",
-    points: ["iOS · Android · PWA", "Product MVP to scale", "Realtime & cloud"],
-    href: "/services/app",
-  },
-  {
-    id: "03",
-    title: "Cybersecurity",
-    copy: "Offense-informed defense: assessments, hardening, monitoring, and advisory so your digital surface stays ahead of threats.",
-    points: ["VAPT & audits", "Secure SDLC", "Managed protection"],
-    href: "/services/cybersecurity",
-  },
-];
 
 function ServiceCard({
   service,
   index,
 }: {
-  service: (typeof services)[number];
+  service: (typeof MAIN_SERVICES)[number];
   index: number;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -58,7 +35,7 @@ function ServiceCard({
       className="group relative flex min-h-[340px] flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-bg-elevated/80 p-7 transition duration-500 hover:border-accent/40"
       style={{
         backgroundImage:
-          "radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(62,207,186,0.16), transparent 42%)",
+          "radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(183,28,40,0.16), transparent 42%)",
       }}
     >
       <div>
@@ -111,8 +88,7 @@ export function Services() {
               Build fast. Secure deeper.
             </h2>
             <p className="mt-4 text-muted md:text-lg">
-              One partner for product delivery and cyber resilience—so growth never
-              outruns your defenses.
+              One partner for software, security, automation, and analytics—so growth never outruns your defenses.
             </p>
           </div>
           <Link
@@ -123,8 +99,8 @@ export function Services() {
           </Link>
         </motion.div>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-3">
-          {services.map((service, index) => (
+        <div className="mt-14 grid gap-4 md:grid-cols-2">
+          {MAIN_SERVICES.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
