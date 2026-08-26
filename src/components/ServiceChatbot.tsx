@@ -67,9 +67,36 @@ export function ServiceChatbot() {
     }
   }
 
-  function onLead(e: FormEvent<HTMLFormElement>) {
+  async function onLead(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSent(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          company: data.get("company"),
+          phone: data.get("phone"),
+          service: data.get("service") || ctx.title,
+          message: data.get("message"),
+          honey: data.get("company_website"),
+        }),
+      });
+      const payload = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok || !payload.ok) {
+        setMessages((m) => [...m, { role: "bot", text: payload.error || "Could not send. Try the contact form." }]);
+        return;
+      }
+      setSent(true);
+    } catch {
+      setMessages((m) => [
+        ...m,
+        { role: "bot", text: "Could not send. Email braczerotech@gmail.com and we’ll pick it up." },
+      ]);
+    }
   }
 
   if (!ready) return null;
@@ -152,6 +179,7 @@ export function ServiceChatbot() {
                     Required to reach a specialist
                   </p>
                   <input type="hidden" name="service" value={ctx.title} />
+                  <input name="company_website" tabIndex={-1} autoComplete="off" className="hidden" />
                   <input
                     required
                     name="name"

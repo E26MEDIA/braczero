@@ -29,7 +29,7 @@ export function Hero() {
   }, [reduceMotion]);
 
   return (
-    <section id="top" className="relative overflow-hidden bg-[#050506] md:min-h-[100svh]">
+    <section id="top" className="relative overflow-hidden bg-[#050506] lg:min-h-[100svh]">
       <motion.div
         className="pointer-events-none absolute inset-0"
         animate={
@@ -74,9 +74,9 @@ export function Hero() {
           </motion.p>
         ))}
 
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-4 pt-[calc(6.5rem+env(safe-area-inset-top))] pb-10 sm:px-6 md:min-h-[100svh] md:justify-between md:pt-36 md:pb-10">
-        <div className="flex max-w-3xl flex-col justify-center pt-2 sm:pt-4 md:flex-1">
-          <h1 className="font-display text-[clamp(1.85rem,8.2vw,5.8rem)] leading-[1.05] font-extrabold tracking-tight text-white sm:leading-[0.92]">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-4 pt-[calc(5.4rem+env(safe-area-inset-top))] pb-6 sm:px-6 lg:min-h-[100svh] lg:justify-between lg:pt-36 lg:pb-10">
+        <div className="flex max-w-3xl flex-col justify-center pt-1 sm:pt-4 lg:flex-1">
+          <h1 className="font-display text-[clamp(1.4rem,6.2vw,5.8rem)] leading-[1.08] font-extrabold tracking-tight text-white sm:leading-[0.92]">
             <SplitText text="Being exposed" delay={0.08} />
             <span className="block">
               <SplitText text="is not your fault." delay={0.28} />
@@ -86,13 +86,13 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
-            className="mt-4 font-display text-lg tracking-tight text-accent sm:mt-6 sm:text-xl md:text-3xl"
+            className="mt-3 font-display text-base tracking-tight text-accent sm:mt-6 sm:text-xl md:text-3xl"
           >
             {COMPANY.tagline}
           </motion.p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 sm:gap-6 md:mt-0 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mt-5 flex flex-col gap-4 sm:gap-6 lg:mt-0 lg:flex-row lg:items-end lg:justify-between">
           <div className="grid min-w-0 flex-1 grid-cols-2 items-stretch gap-2 sm:gap-3 md:flex md:overflow-x-auto md:pb-1">
             <div className="hidden shrink-0 grid-cols-4 gap-1 self-center lg:grid" aria-hidden>
               {Array.from({ length: 16 }).map((_, i) => (
@@ -111,7 +111,7 @@ export function Hero() {
                   key={service.href}
                   href={service.href}
                   onMouseEnter={() => setActive(i)}
-                  className={`flex min-w-0 items-center justify-between gap-2 rounded-md px-3 py-3 text-[13px] leading-snug font-medium transition sm:px-4 sm:py-4 sm:text-sm md:min-w-[180px] md:flex-1 md:px-5 md:py-5 ${
+                  className={`flex min-w-0 items-center justify-between gap-2 rounded-md px-2.5 py-2.5 text-[12px] leading-snug font-medium transition sm:px-4 sm:py-4 sm:text-sm md:min-w-[180px] md:flex-1 md:px-5 md:py-5 ${
                     on
                       ? "bg-accent text-white"
                       : "bg-white/5 text-white hover:bg-white/10"

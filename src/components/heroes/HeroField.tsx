@@ -27,8 +27,8 @@ export function HeroField() {
 
     function onMove(e: MouseEvent) {
       const rect = surface.getBoundingClientRect();
-      mouse.x = (e.clientX - rect.left) / rect.width;
-      mouse.y = (e.clientY - rect.top) / rect.height;
+      mouse.x = (e.clientX - rect.left) / Math.max(rect.width, 1);
+      mouse.y = (e.clientY - rect.top) / Math.max(rect.height, 1);
     }
 
     function draw() {

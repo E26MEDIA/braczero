@@ -1,4 +1,5 @@
 import { BrandLogo } from "@/components/BrandLogo";
+import { SocialIcons } from "@/components/SocialIcons";
 import { COMPANY } from "@/lib/company";
 import { MAIN_SERVICES } from "@/lib/services";
 import Link from "next/link";
@@ -20,6 +21,7 @@ export function Footer() {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
               {COMPANY.tagline} Cybersecurity, software, AI, and data—from Mangalore.
             </p>
+            <SocialIcons />
           </div>
 
           <nav aria-label="Company">
@@ -60,8 +62,8 @@ export function Footer() {
               Contact
             </p>
             <div className="mt-5 space-y-3 text-sm leading-relaxed text-muted">
-              <a href={`mailto:${COMPANY.email}`} className="block transition hover:text-fg">
-                {COMPANY.email}
+              <a href={`mailto:${COMPANY.enquiryEmail}`} className="block transition hover:text-fg">
+                {COMPANY.enquiryEmail}
               </a>
               {COMPANY.phones.map((p) => (
                 <a key={p.href} href={p.href} className="block transition hover:text-fg">

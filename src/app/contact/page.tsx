@@ -23,8 +23,8 @@ export default function ContactPage() {
             className="rounded-2xl border border-white/10 bg-[#101012] p-5"
           >
             <p className="font-mono text-[10px] tracking-widest text-muted uppercase">Email</p>
-            <a href={`mailto:${COMPANY.email}`} className="mt-2 block text-fg transition hover:text-accent">
-              {COMPANY.email}
+            <a href={`mailto:${COMPANY.enquiryEmail}`} className="mt-2 block text-fg transition hover:text-accent">
+              {COMPANY.enquiryEmail}
             </a>
           </motion.div>
           <motion.div
