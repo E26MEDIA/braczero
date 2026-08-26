@@ -61,7 +61,7 @@ export function Hero() {
         snippets.map((s, i) => (
           <motion.p
             key={s.text}
-            className={`pointer-events-none absolute font-mono text-[10px] tracking-wide text-accent/40 md:block md:text-[11px] lg:text-xs ${i > 2 ? "hidden md:block" : ""}`}
+            className="pointer-events-none absolute hidden font-mono text-[11px] tracking-wide text-accent/45 md:block lg:text-xs"
             style={{ top: s.top, right: s.right }}
             animate={{
               y: [0, i % 2 === 0 ? -16 : 16, 0],
@@ -74,9 +74,9 @@ export function Hero() {
           </motion.p>
         ))}
 
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-4 pt-[calc(4.5rem+env(safe-area-inset-top))] pb-5 sm:px-6 md:min-h-[100svh] md:justify-between md:pt-36 md:pb-10">
-        <div className="flex max-w-3xl flex-col pt-2 sm:pt-4 md:flex-1 md:justify-center">
-          <h1 className="font-display text-[clamp(1.7rem,7.4vw,5.8rem)] leading-[1.08] font-extrabold tracking-tight text-white sm:leading-[0.92]">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col px-4 pt-[calc(4.75rem+env(safe-area-inset-top))] pb-8 sm:px-6 md:min-h-[100svh] md:justify-between md:pt-36 md:pb-10">
+        <div className="flex max-w-3xl flex-col pt-1 sm:pt-4 md:flex-1 md:justify-center">
+          <h1 className="font-display text-[clamp(1.5rem,6.4vw,5.8rem)] leading-[1.12] font-extrabold tracking-tight text-white sm:leading-[0.92]">
             <SplitText text="Being exposed" delay={0.08} />
             <span className="block">
               <SplitText text="is not your fault." delay={0.28} />
@@ -86,14 +86,14 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
-            className="mt-3 font-display text-base tracking-tight text-accent sm:mt-6 sm:text-xl md:text-3xl"
+            className="mt-4 font-display text-[15px] tracking-tight text-accent sm:mt-6 sm:text-xl md:text-3xl"
           >
             {COMPANY.tagline}
           </motion.p>
         </div>
 
-        <div className="mt-5 flex shrink-0 flex-col gap-3 sm:mt-8 sm:gap-6 md:mt-auto md:pt-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="grid min-w-0 grid-cols-2 items-stretch gap-2 sm:gap-3 md:flex md:overflow-x-auto md:pb-1">
+        <div className="mt-7 flex shrink-0 flex-col gap-3 sm:mt-8 sm:gap-6 md:mt-auto md:pt-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="grid min-w-0 grid-cols-2 items-stretch gap-2.5 sm:gap-3 md:flex md:overflow-x-auto md:pb-1">
             <div className="hidden shrink-0 grid-cols-4 gap-1 self-center lg:grid" aria-hidden>
               {Array.from({ length: 16 }).map((_, i) => (
                 <motion.span
@@ -111,13 +111,13 @@ export function Hero() {
                   key={service.href}
                   href={service.href}
                   onMouseEnter={() => setActive(i)}
-                  className={`flex min-h-11 items-center justify-between gap-2 rounded-md px-3 py-2.5 text-[12px] leading-snug font-medium transition sm:min-h-0 sm:px-4 sm:py-4 sm:text-sm md:min-w-[180px] md:flex-1 md:px-5 md:py-5 ${
+                  className={`flex min-h-[3.35rem] min-w-0 items-center justify-between gap-2.5 rounded-lg px-3.5 py-3 text-[13px] leading-snug font-medium transition sm:min-h-0 sm:px-4 sm:py-4 sm:text-sm md:min-w-[180px] md:flex-1 md:px-5 md:py-5 ${
                     on
                       ? "bg-accent text-white"
                       : "border border-white/10 bg-white/[0.06] text-white hover:bg-white/10"
                   }`}
                 >
-                  <span className="text-balance">{service.title}</span>
+                  <span className="min-w-0 text-left">{service.title}</span>
                   <span aria-hidden className="shrink-0">
                     →
                   </span>

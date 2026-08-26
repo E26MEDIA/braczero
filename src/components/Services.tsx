@@ -71,7 +71,7 @@ function ServiceCard({
 
 export function Services() {
   return (
-    <section id="services" className="relative px-4 py-8 sm:px-6 md:py-32">
+    <section id="services" className="relative px-4 py-12 sm:px-6 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
