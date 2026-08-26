@@ -36,8 +36,8 @@ export function HeroField() {
       gfx.clearRect(0, 0, width, height);
 
       const mobile = width < 640;
-      const cols = mobile ? 22 : 42;
-      const rows = mobile ? 16 : 26;
+      const cols = mobile ? 18 : 42;
+      const rows = mobile ? 22 : 26;
       const parallaxX = (mouse.x - 0.5) * 56;
       const parallaxY = (mouse.y - 0.5) * 24;
 
@@ -47,13 +47,13 @@ export function HeroField() {
       for (let r = 0; r < rows; r++) {
         const depth = r / (rows - 1);
         const scale = 0.12 + depth * 1.45;
-        const y = height * 0.08 + depth * height * 0.92 + parallaxY * depth;
-        const spacing = 42 * scale;
+        const y = height * (mobile ? 0.02 : 0.08) + depth * height * (mobile ? 0.98 : 0.92) + parallaxY * depth;
+        const spacing = (mobile ? 36 : 42) * scale;
         const rowWidth = cols * spacing;
-        const startX = width * 0.58 - rowWidth / 2 + parallaxX * depth + drift * scale;
+        const startX = width * (mobile ? 0.5 : 0.58) - rowWidth / 2 + parallaxX * depth + drift * scale;
         const wave = reduce ? 0 : Math.sin(t * 1.4 + r * 0.35) * 0.5 + 0.5;
         const scanBoost = 1 - Math.min(1, Math.abs(r - scan) / 2.2);
-        const alpha = 0.12 + depth * 0.55 + wave * 0.18 + scanBoost * 0.45;
+        const alpha = (mobile ? 0.22 : 0.12) + depth * (mobile ? 0.72 : 0.55) + wave * 0.18 + scanBoost * 0.45;
 
         for (let c = 0; c < cols; c++) {
           const x = startX + c * spacing;
