@@ -24,6 +24,13 @@ export const metadata: Metadata = {
   title: "BracZero — Cybersecurity, Software, AI & Data",
   description:
     "One qubit ahead. BracZero Tech Private Limited — cybersecurity, software, AI, and data from Mangalore.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export const viewport: Viewport = {
