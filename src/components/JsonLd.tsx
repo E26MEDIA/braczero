@@ -19,6 +19,8 @@ export function JsonLd() {
           addressCountry: "IN",
         },
         slogan: "One qubit ahead.",
+        logo: `${SITE_URL}/favicon-48.png`,
+        image: `${SITE_URL}/favicon-192.png`,
         sameAs: [
           "https://www.linkedin.com/company/braczero",
           "https://www.instagram.com/braczero",

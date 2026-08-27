@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: "/",
+      allow: ["/", "/favicon.ico", "/favicon-48.png", "/favicon-96.png", "/favicon-192.png", "/icon.svg"],
       disallow: ["/api/"],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
