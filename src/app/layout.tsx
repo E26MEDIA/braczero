@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/JsonLd";
+import { SITE_URL } from "@/lib/site";
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Outfit, Syne } from "next/font/google";
 import "./globals.css";
@@ -21,10 +23,42 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.braczero.com"),
-  title: "BracZero — Cybersecurity, Software, AI & Data",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "BracZero — Cybersecurity, Software, AI & Data",
+    template: "%s — BracZero",
+  },
   description:
     "One qubit ahead. BracZero Tech Private Limited — cybersecurity, software, AI, and data from Mangalore.",
+  keywords: [
+    "BracZero",
+    "cybersecurity",
+    "VAPT",
+    "software development",
+    "AI automation",
+    "data analytics",
+    "Mangalore",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: SITE_URL,
+    siteName: "BracZero",
+    title: "BracZero — Cybersecurity, Software, AI & Data",
+    description:
+      "One qubit ahead. Cybersecurity, software, AI, and data from Mangalore.",
+  },
+  twitter: {
+    card: "summary",
+    title: "BracZero — Cybersecurity, Software, AI & Data",
+    description:
+      "One qubit ahead. Cybersecurity, software, AI, and data from Mangalore.",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
@@ -51,7 +85,10 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${outfit.variable} ${jetbrains.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-bg text-fg">{children}</body>
+      <body className="min-h-full bg-bg text-fg">
+        <JsonLd />
+        {children}
+      </body>
     </html>
   );
 }

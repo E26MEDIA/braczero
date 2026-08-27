@@ -1,4 +1,12 @@
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Software & Apps",
+  description:
+    "Web platforms and mobile apps from MVP to production—secure, scalable software from BracZero.",
+  alternates: { canonical: "/services/software-apps" },
+};
 
 const data = {
   eyebrow: "Services · Software & Apps",

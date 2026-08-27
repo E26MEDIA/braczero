@@ -1,4 +1,12 @@
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Data Analytics",
+  description:
+    "Pipelines, dashboards, and decision systems that turn activity into numbers leadership can act on.",
+  alternates: { canonical: "/services/data-analytics" },
+};
 
 const data = {
   eyebrow: "Services · Data Analytics",

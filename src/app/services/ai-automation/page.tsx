@@ -1,4 +1,12 @@
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AI & Automations",
+  description:
+    "Service chatbots, ops automation, and copilots wired to your systems—with a human in the loop.",
+  alternates: { canonical: "/services/ai-automation" },
+};
 
 const data = {
   eyebrow: "Services · AI & Automations",

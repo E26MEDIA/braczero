@@ -1,4 +1,12 @@
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cybersecurity",
+  description:
+    "Assessments, compliance, training, and managed defense. VAPT and offense-informed security from BracZero.",
+  alternates: { canonical: "/services/cybersecurity" },
+};
 
 const data = {
   eyebrow: "Services · Cybersecurity",

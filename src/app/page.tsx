@@ -4,7 +4,12 @@ import { Marquee } from "@/components/Marquee";
 import { Process } from "@/components/Process";
 import { Services } from "@/components/Services";
 import { SiteShell } from "@/components/SiteShell";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
