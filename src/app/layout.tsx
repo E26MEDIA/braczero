@@ -21,6 +21,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.braczero.com"),
   title: "BracZero — Cybersecurity, Software, AI & Data",
   description:
     "One qubit ahead. BracZero Tech Private Limited — cybersecurity, software, AI, and data from Mangalore.",

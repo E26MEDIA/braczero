@@ -37,6 +37,8 @@ export function originAllowed(request: Request) {
     `https://${host}`,
     "http://localhost:3000",
     "https://braczero.vercel.app",
+    "https://www.braczero.com",
+    "https://braczero.com",
   ]);
   return allowed.has(origin);
 }
