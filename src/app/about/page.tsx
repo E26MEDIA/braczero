@@ -148,7 +148,7 @@ export default function AboutPage() {
             <p className="mt-2 text-muted">A short call beats a long pitch deck.</p>
           </div>
           <Link
-            href="/contact"
+            href="/contact#enquiry"
             className="w-full rounded-full bg-accent px-6 py-3.5 text-center text-sm font-semibold text-white md:w-auto"
           >
             Contact Us →

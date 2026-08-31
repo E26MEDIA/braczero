@@ -38,7 +38,7 @@ export default function WorkPage() {
       <PageHero
         eyebrow="Work"
         title="Selected engagements across build and defend."
-        description="A snapshot of how BracZero ships software and hardens systems for teams that can’t afford downtime or weak releases."
+        description="Anonymised snapshots of software and security work. Named project references will be added here as clients release them."
       />
 
       <section className="px-4 pb-20 sm:px-6">

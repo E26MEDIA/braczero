@@ -1,9 +1,10 @@
 "use client";
 
 import { chatContextForPath } from "@/lib/serviceChat";
+import { COMPANY } from "@/lib/company";
 import { postEnquiry } from "@/lib/enquiryClient";
 import { AnimatePresence, motion } from "framer-motion";
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 type Msg = { role: "bot" | "user"; text: string };
@@ -15,7 +16,7 @@ function matchReply(
   if (ctx.promptReplies[text]) return ctx.promptReplies[text];
   const t = text.toLowerCase();
   const ranked = Object.entries(ctx.replies)
-    .filter(([key]) => key.length > 3 && t.includes(key))
+    .filter(([key]) => key.length >= 2 && t.includes(key))
     .sort((a, b) => b[0].length - a[0].length);
   if (ranked[0]) return ranked[0][1];
   if (t.includes("price") || t.includes("cost") || t.includes("budget")) {
@@ -23,6 +24,9 @@ function matchReply(
   }
   if (t.includes("timeline") || t.includes("how long") || t.includes("weeks")) {
     return ctx.replies.timeline ?? ctx.replies.mvp ?? ctx.replies.branding ?? ctx.fallback;
+  }
+  if (t.includes("automat") || t.includes("chatbot") || t.includes("copilot") || t.includes("ai")) {
+    return ctx.replies.automation ?? ctx.replies.chatbot ?? ctx.fallback;
   }
   return ctx.fallback;
 }
@@ -37,10 +41,15 @@ export function ServiceChatbot() {
   const [sent, setSent] = useState(false);
 
   const [ready, setReady] = useState(false);
+  const logRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setReady(true);
   }, []);
+
+  useEffect(() => {
+    logRef.current?.scrollTo({ top: logRef.current.scrollHeight, behavior: "smooth" });
+  }, [messages, lead, sent]);
 
   useEffect(() => {
     setMessages([{ role: "bot", text: ctx.greeting }]);
@@ -60,9 +69,8 @@ export function ServiceChatbot() {
     ]);
     setDraft("");
     if (
-      trimmed.toLowerCase().includes("call") ||
-      trimmed.toLowerCase().includes("quote") ||
-      reply.includes("leave")
+      /call|quote|book|enquiry|contact/.test(trimmed.toLowerCase()) ||
+      /leave your|leave details|contact us|book a call/.test(reply.toLowerCase())
     ) {
       setLead(true);
     }
@@ -85,7 +93,7 @@ export function ServiceChatbot() {
       if (!payload.ok) {
         setMessages((m) => [
           ...m,
-          { role: "bot", text: payload.error || "Could not send. Email braczerotech@gmail.com and we’ll pick it up." },
+          { role: "bot", text: payload.error || `Could not send. Email ${COMPANY.enquiryEmail} and we’ll pick it up.` },
         ]);
         return;
       }
@@ -93,7 +101,7 @@ export function ServiceChatbot() {
     } catch {
       setMessages((m) => [
         ...m,
-        { role: "bot", text: "Could not send. Email braczerotech@gmail.com and we’ll pick it up." },
+        { role: "bot", text: `Could not send. Email ${COMPANY.enquiryEmail} and we’ll pick it up.` },
       ]);
     }
   }
@@ -136,7 +144,7 @@ export function ServiceChatbot() {
               </button>
             </div>
 
-            <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
+            <div ref={logRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
               {messages.map((msg, i) => (
                 <motion.div
                   key={`${msg.role}-${i}`}
@@ -214,7 +222,8 @@ export function ServiceChatbot() {
                   />
                   <button
                     type="submit"
-                    className="w-full rounded-full bg-accent py-2 text-sm font-semibold text-white"
+                    disabled={sent}
+                    className="w-full rounded-full bg-accent py-2 text-sm font-semibold text-white disabled:opacity-70"
                   >
                     {sent ? "Received — we’ll reply shortly" : "Send to BracZero"}
                   </button>

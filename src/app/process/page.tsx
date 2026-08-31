@@ -26,7 +26,7 @@ export default function ProcessPage() {
             Prefer to see how this maps to your project? We’ll walk the process on a short call.
           </p>
           <Link
-            href="/contact"
+            href="/contact#enquiry"
             className="w-full rounded-full bg-accent px-6 py-3.5 text-center text-sm font-semibold text-white md:w-auto"
           >
             Book a call →

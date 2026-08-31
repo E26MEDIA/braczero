@@ -53,6 +53,7 @@ const data = {
       heading: "Regulatory compliance",
       items: [
         "RBI, IRDAI, SEBI, UIDAI, and CERT-In alignment",
+        "UAE PDPL, ISR, NESR, and NESA / IAS alignment",
         "DPDP and data-protection readiness",
         "Evidence packs for regulators and boards",
       ],
@@ -84,8 +85,8 @@ const data = {
       copy: "Hardening, pipelines, and cloud baselines that match how your team already works.",
     },
     {
-      title: "Proof for auditors",
-      copy: "Mapped controls and evidence so ISO, SOC, PCI, or Indian regulators are not a scramble.",
+      title: "Proof for regulators",
+      copy: "Mapped controls and evidence so ISO, SOC, PCI, and regulators are not a scramble.",
     },
     {
       title: "Ongoing cover",

@@ -149,6 +149,9 @@ export function ServiceDetailPage({ data }: { data: ServiceDetailData }) {
       <section className="px-4 pb-16 sm:px-6">
         <div className="mx-auto max-w-6xl rounded-3xl border border-white/10 bg-[#101012] p-8 md:p-10">
           <h2 className="font-display text-2xl font-bold">Stack & tools</h2>
+          <p className="mt-2 max-w-2xl text-sm text-muted">
+            Methods and platforms we actually use on engagements—so specialists can scan fit in seconds.
+          </p>
           <TechStack items={data.tech} />
         </div>
       </section>
@@ -164,7 +167,7 @@ export function ServiceDetailPage({ data }: { data: ServiceDetailData }) {
             </p>
           </div>
           <Link
-            href="/contact"
+            href="/contact#enquiry"
             className="w-full rounded-full bg-accent px-6 py-3.5 text-center text-sm font-semibold text-white md:w-auto"
           >
             Contact Us →

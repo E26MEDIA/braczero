@@ -257,6 +257,57 @@ export const SERVICE_CHAT: Record<string, ChatContext> = {
     fallback:
       "What should the bot or automation do in the first 30 days? Leave your details and an AI lead will follow up.",
   },
+  "/services/software-apps": {
+    path: "/services/software-apps",
+    title: "Software specialist",
+    greeting:
+      "Web platform, mobile app, or both? Tell me what you need to ship and I’ll outline stack, timeline, and security.",
+    prompts: ["MVP timeline?", "Web and mobile together?", "Is security included?"],
+    promptReplies: {
+      "MVP timeline?":
+        "A focused product MVP is often 8–12 weeks: discovery, build, QA, and a secure launch path.",
+      "Web and mobile together?":
+        "Yes. We design one product system—web, iOS, Android, or PWA—so APIs and auth stay consistent.",
+      "Is security included?":
+        "Yes. Auth, roles, and hardening sit in the same plan as the product—not a bolt-on after launch.",
+    },
+    replies: {
+      mvp: "A focused product MVP is often 8–12 weeks: discovery, build, QA, and a secure launch path.",
+      mobile:
+        "Yes. We design one product system—web, iOS, Android, or PWA—so APIs and auth stay consistent.",
+      security:
+        "Auth, roles, and hardening sit in the same plan as the product—not a bolt-on after launch.",
+      price:
+        "Share platforms, features, and whether you need a backend. We’ll map MVP vs v1.",
+    },
+    fallback:
+      "Tell me platforms, must-have features, and deadline. Or leave your details and a product lead will follow up.",
+  },
+  "/services/data-analytics": {
+    path: "/services/data-analytics",
+    title: "Data specialist",
+    greeting:
+      "Pipelines, dashboards, or forecasting? Tell me which numbers leadership needs to see.",
+    prompts: ["What do you build first?", "Can you use our existing data?", "How long for a dashboard?"],
+    promptReplies: {
+      "What do you build first?":
+        "A trusted source of truth: clean pipelines, then the two or three dashboards people will actually open.",
+      "Can you use our existing data?":
+        "Yes. We connect product, sales, and ops sources without a rip-and-replace unless the current stack is broken.",
+      "How long for a dashboard?":
+        "A first leadership view is often 3–6 weeks once sources and metrics are agreed.",
+    },
+    replies: {
+      dashboard:
+        "A first leadership view is often 3–6 weeks once sources and metrics are agreed.",
+      pipeline:
+        "We start with a trusted source of truth, then the dashboards people will actually open.",
+      price:
+        "Share sources, the decisions you need to make, and how often numbers must refresh.",
+    },
+    fallback:
+      "Which decision is blocked by missing numbers? Leave your details and a data lead will follow up.",
+  },
   "/services": {
     path: "/services",
     title: "BracZero assistant",
@@ -295,7 +346,7 @@ export const DEFAULT_CHAT: ChatContext = {
     "See services":
       "We offer websites, apps, cybersecurity, digital marketing, branding, UI/UX, cloud/DevOps, IT consulting, and AI chatbots.",
     "Book a call":
-      "Use Contact Us or leave your name and work email here—someone replies within one business day.",
+      "Leave your details here and we’ll reply within one business day—or use Contact Us.",
     "What is BracZero?":
       "BracZero builds and secures digital products: code that ships, threats that don’t.",
   },

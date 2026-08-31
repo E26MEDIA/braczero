@@ -248,7 +248,7 @@ export function ProcessPipeline({ showFooterLink = true }: Props) {
             Full process →
           </Link>
         ) : (
-          <Link href="/contact" className="text-sm text-accent transition hover:brightness-125">
+          <Link href="/contact#enquiry" className="text-sm text-accent transition hover:brightness-125">
             Book a call →
           </Link>
         )}

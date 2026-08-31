@@ -29,8 +29,14 @@ export function Footer() {
               Company
             </p>
             <div className="mt-5 flex flex-col gap-3 text-sm text-muted">
+              <Link href="/" className="transition hover:text-fg">
+                Home
+              </Link>
               <Link href="/about" className="transition hover:text-fg">
                 About Us
+              </Link>
+              <Link href="/services" className="transition hover:text-fg">
+                Services
               </Link>
               <Link href="/process" className="transition hover:text-fg">
                 Process
@@ -39,7 +45,10 @@ export function Footer() {
                 Work
               </Link>
               <Link href="/contact" className="transition hover:text-fg">
-                Contact Us
+                Contact us
+              </Link>
+              <Link href="/contact#enquiry" className="transition hover:text-fg">
+                Book a call
               </Link>
             </div>
           </nav>

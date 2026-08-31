@@ -14,7 +14,7 @@ export function SplitText({ text, className, delay = 0 }: Props) {
   return (
     <span className={className}>
       {words.map((word, i) => (
-        <span key={`${word}-${i}`} className="inline-block overflow-hidden pb-1 align-bottom">
+        <span key={`${word}-${i}`} className="inline-block overflow-hidden pb-[0.18em] align-baseline">
           <motion.span
             className="inline-block"
             initial={{ y: "110%", rotate: 4, opacity: 0 }}

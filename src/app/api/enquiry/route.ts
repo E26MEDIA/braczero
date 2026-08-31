@@ -109,7 +109,7 @@ async function sendFormSubmit(
 }
 
 async function deliver(text: string, replyTo: string, subject: string, origin: string) {
-  const to = process.env.ENQUIRY_TO?.trim() || COMPANY.enquiryEmail;
+  const to = COMPANY.enquiryEmail;
   if (await sendSmtp(text, replyTo, subject, to)) return;
   if (await sendResend(text, replyTo, subject, to)) return;
   await sendFormSubmit(text, replyTo, subject, to, origin);

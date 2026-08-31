@@ -8,11 +8,12 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
   { href: "/process", label: "Process" },
   { href: "/work", label: "Work" },
-  { href: "/about", label: "About Us" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/contact", label: "Contact us" },
 ];
 
 const serviceLinks = MAIN_SERVICES.map((s) => ({ href: s.href, label: s.title }));
@@ -62,78 +63,87 @@ export function Navbar() {
       >
         <BrandLogo compact className="text-fg" />
 
-        <div className="hidden items-center gap-6 lg:flex">
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
-            <Link
-              href="/services"
-              className={`relative text-sm transition-colors ${
-                servicesActive ? "text-fg" : "text-muted hover:text-fg"
-              }`}
-            >
-              Services
-              {servicesActive && (
-                <motion.span
-                  layoutId="nav-underline"
-                  className="absolute -bottom-1 left-0 h-px w-full bg-accent"
-                />
-              )}
-            </Link>
-            <AnimatePresence>
-              {servicesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 6 }}
-                  className="absolute top-full left-0 pt-3"
-                >
-                  <div className="grid min-w-[380px] grid-cols-2 gap-0.5 rounded-2xl border border-white/10 bg-[#0a0e14]/95 p-2 shadow-xl backdrop-blur-xl">
-                    {serviceLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className={`block rounded-xl px-3 py-2 text-sm transition ${
-                          pathname === link.href
-                            ? "bg-white/5 text-accent"
-                            : "text-muted hover:bg-white/5 hover:text-fg"
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+        <div className="hidden items-center gap-5 xl:gap-6 lg:flex">
+          {links.map((link) => {
+            const active =
+              link.href === "/"
+                ? pathname === "/"
+                : link.href === "/services"
+                  ? servicesActive
+                  : pathname === link.href;
 
-          {links
-            .filter((l) => l.href !== "/services")
-            .map((link) => {
-              const active = pathname === link.href;
+            if (link.href === "/services") {
               return (
-                <Link
+                <div
                   key={link.href}
-                  href={link.href}
-                  className={`relative text-sm transition-colors ${
-                    active ? "text-fg" : "text-muted hover:text-fg"
-                  }`}
+                  className="relative"
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
                 >
-                  {link.label}
-                  {active && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute -bottom-1 left-0 h-px w-full bg-accent"
-                    />
-                  )}
-                </Link>
+                  <Link
+                    href="/services"
+                    className={`relative text-sm transition-colors ${
+                      active ? "text-fg" : "text-muted hover:text-fg"
+                    }`}
+                  >
+                    {link.label}
+                    {active && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute -bottom-1 left-0 h-px w-full bg-accent"
+                      />
+                    )}
+                  </Link>
+                  <AnimatePresence>
+                    {servicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 6 }}
+                        className="absolute top-full left-0 pt-3"
+                      >
+                        <div className="grid min-w-[380px] grid-cols-2 gap-0.5 rounded-2xl border border-white/10 bg-[#0a0e14]/95 p-2 shadow-xl backdrop-blur-xl">
+                          {serviceLinks.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className={`block rounded-xl px-3 py-2 text-sm transition ${
+                                pathname === item.href
+                                  ? "bg-white/5 text-accent"
+                                  : "text-muted hover:bg-white/5 hover:text-fg"
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               );
-            })}
+            }
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative text-sm transition-colors ${
+                  active ? "text-fg" : "text-muted hover:text-fg"
+                }`}
+              >
+                {link.label}
+                {active && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute -bottom-1 left-0 h-px w-full bg-accent"
+                  />
+                )}
+              </Link>
+            );
+          })}
           <Link
-            href="/contact"
+            href="/contact#enquiry"
             className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition hover:brightness-110"
           >
             Book a call
@@ -206,7 +216,7 @@ export function Navbar() {
                   ))}
                 </div>
                 <Link
-                  href="/contact"
+                  href="/contact#enquiry"
                   className="mt-2 rounded-full bg-accent px-4 py-2.5 text-center text-sm font-medium text-white"
                 >
                   Book a call

@@ -99,12 +99,13 @@ export function Contact({ hideIntro = false }: Props) {
         )}
 
         <motion.form
+          id="enquiry"
           onSubmit={onSubmit}
           initial={{ opacity: 0, x: 16 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, delay: 0.08 }}
-          className={`flex flex-col gap-4 ${hideIntro ? "mx-auto w-full max-w-xl" : ""}`}
+          className={`flex scroll-mt-28 flex-col gap-4 ${hideIntro ? "mx-auto w-full max-w-xl" : ""}`}
         >
           <label className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
             Company website

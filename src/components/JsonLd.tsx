@@ -10,7 +10,11 @@ export function JsonLd() {
         name: "BracZero Tech Private Limited",
         url: SITE_URL,
         email: "info@braczero.com",
-        telephone: ["+91 83174 60516", "+91 81053 42557"],
+        telephone: [
+          "+91 83174 60516",
+          "+91 81053 42557",
+          "+971 54 318 6787",
+        ],
         address: {
           "@type": "PostalAddress",
           streetAddress: "Center Point Building, Balmatta, Kanakandy",
